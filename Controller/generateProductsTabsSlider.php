@@ -1,5 +1,16 @@
 <?php
-
+/*****************************************************************************************************/
+/*****************************************************************************************************
+AUTOR:ELCACHO GRNADOS MARC                                                                                                 
+FEHCA:26-06-2016                                                                                                 
+VERSION:V.0.1   
+FUNCIONAMIENTO:
+Lee grupos de tabla a_grupo_cantidad. Lee productos de tabla f_random_products.
+Segun cantidad de tabla a_grupo_cantidad va desde el primer grupo hasta $numero_filas.
+Para cada grupo que exista imprime func b() hasta func d().
+Imprimie para cada grupo todos los productos que existan en f_random_products.         
+*****************************************************************************************************/
+/*****************************************************************************************************/
 require_once 'funcAutoLoad.php';
 require_once 'View/html/productsTabsSlider.php';
 
@@ -9,12 +20,12 @@ $numero_filas = 4; //EN MODO COLUMNA HACIA DERECHA
 
 /* OBJETO */
 $shop = new Shop('aux');
-$shop->TabsSliderGroups();
+$shop->TabsSliderGroups(); //'SELECT grupo FROM a_grupo_cantidad;'
 $aGrupos = array(); //Contenedor de SELECT grupo FROM a_grupo_cantidad.
 $aGrupos = $shop->getArrAux();
 
 $aProducts = array();
-$shop->TabsSliderProducts();
+$shop->TabsSliderProducts(); //'SELECT grupo,codigo_producto,nombre_producto,pvp,pvp_incrementado,imagen,valor_oferta FROM f_random_products;';
 $aProducts = $shop->getArrAux();
 
 /* VARIABLES */
@@ -45,9 +56,10 @@ while ($resto > 0) {
     } else {
         $actual = $resto + $inicio;
     }
-//
+
     b($count); //HTML productsTabsSlider.php
     $count++;
+
     for ($i = $inicio; $i < $actual; $i++) {
         if ($i == $inicio) {
             $first_loop = 'class="active"';
@@ -59,31 +71,21 @@ while ($resto > 0) {
 
         c($first_loop, $no_spaces, $aGrupos[$i]['grupo']); //HTML productsTabsSlider.php
     }
-//
+
     d(); //HTML productsTabsSlider.php
 
     for ($i = $inicio; $i < $actual; $i++) {
 
         if ($i == $inicio) {
             $first_loop = ' active';
-        } else {
-            $first_loop = '';
-        }
+            $no_spaces = str_replace(' ', '_', $aGrupos[$i]['grupo']);
 
-        $no_spaces = str_replace(' ', '_', $aGrupos[$i]['grupo']);
-//        
-//        //-----LEVEL 2--INSIDE----/
-//        //DEL PRIMER GRUPO PONE TODOS LOS PRODUCTOS SALTA HASTA $numero_filas Y VUELVEA PONER TODOS PRODUCTOS
-        //if ($cnt < $numero_filas && $aGrupos[$i]['grupo'] != $sNameGroup) {
-        e($first_loop, $no_spaces); //HTML productsTabsSlider.php   
-        product_tabs_slider_lvl_2($aProducts, $aGrupos[$i]['grupo']);
-        e2();
-        // if($cnt == $numero_filas ) $cnt=0;
-        //}
-//        //$cnt++;
+            e($first_loop, $no_spaces); //HTML productsTabsSlider.php   
+            product_tabs_slider_lvl_2($aProducts, $aGrupos[$i]['grupo']);
+            e2();
+        }
     }
-//}
-//
+
     f(); //HTML productsTabsSlider.php
 
     $resto = $resto - $numero_filas;
@@ -95,19 +97,25 @@ while ($resto > 0) {
 
 function product_tabs_slider_lvl_2($aProducts, $grupo) {
 //    // $sql='SELECT grupo,codigo_producto,nombre_producto,pvp,pvp_incrementado,imagen,valor_oferta FROM f_random_products;';
-//    var_dump($grupo);
+    
+    //var_dump($aProducts);
     $string_vNO = "vNO=N&";
     $data_valor_oferta = "N";
-    $sGrupo = $grupo;
-
-    foreach ($aProducts as $elem) {
-        if ($sGrupo == $elem['grupo']) {
-            if ($elem["valor_oferta"] == 1) {
+    $cnt=0;
+    $exit = false; //SI CAMBIA EL GRUPO Y YA HAVIA PUESTO SALE
+   
+    foreach ($aProducts as $eProducts ) {
+        if ($grupo == $eProducts['grupo']) {
+            if ($eProducts["valor_oferta"] == 1) {
                 $string_vNO = "vNO=O&";
                 $data_valor_oferta = "O";
             }
 
-            e1($string_vNO, $data_valor_oferta, $elem['codigo_producto'], $elem['nombre_producto'], $elem['pvp'], $elem['pvp_incrementado'], $elem['imagen'], $elem['valor_oferta']);
-        }
+            e1($string_vNO, $data_valor_oferta, $eProducts['codigo_producto'], $eProducts['nombre_producto'], $eProducts['pvp'], $eProducts['pvp_incrementado'], $eProducts['imagen'], $eProducts['valor_oferta']);
+
+            $exit = true;
+        }else if($grupo != $eProducts['grupo'] && $exit) break;
+        $cnt++;
     }
+    echo $cnt;
 }
