@@ -49,4 +49,10 @@ Class Shop {
         $this->setArrAux($FetchProducts);
     }
 
+    public function TabsSliderAjaxRequestGroupProducts() {
+        $daoshop = new daoShop();
+        $FetchProducts = $daoshop->FetchProducts();
+        $this->setArrAux($FetchProducts);
+    }
+
 }

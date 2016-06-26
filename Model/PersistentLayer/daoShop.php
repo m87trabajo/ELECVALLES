@@ -38,7 +38,7 @@ Class daoShop {
 
         try {
             $con = new DBConnection();
-            $sql='SELECT grupo,codigo_producto,nombre_producto,pvp,pvp_incrementado,imagen,valor_oferta FROM f_random_products;';
+            $sql='SELECT grupo,codigo_producto,nombre_producto,pvp,pvp_incrementado,imagen,valor_oferta FROM f_random_products order by grupo asc;';
             $response = $con->getAll($sql);
         } catch (Exception $e) {
             ErrPDOCatch(get_class($this) . '-->FetchProducts()', $e->getMessage(), $e->getCode());

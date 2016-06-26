@@ -12,7 +12,7 @@ function b($count) { ;?>
                 <section>
                     <div class = "col-lg-12 homebanner-holder">
                         <!--============================================= = SCROLL TABS ============================================= = -->
-                        <div id = "product-tabs-slider<?php echo "-" . $count ;?>" class = "scroll_tabs wow fadeInUp">
+                        <div class = "product-tabs-slider scroll_tabs wow fadeInUp">
                             <div class = "more_info_tab clearfix ">
                                 <div class = "row">
                                     <div class = "col-lg-12">
@@ -21,7 +21,7 @@ function b($count) { ;?>
                                                 <h3 class = "new_product_title pull-left">PRODUCTOS</h3>
                                             </div>
                                             <div class = "col-xs-12 col-sm-10 col-md-10">
-                                                <ul class = "nav nav-tabs nav_tab_line" id = "new-products-1<?php echo "-" . $count ;?>">   
+                                                <ul class = "new-products nav nav-tabs nav_tab_line">   
 <?php } ;?>
 
  <?php
