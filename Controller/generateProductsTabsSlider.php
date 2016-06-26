@@ -105,16 +105,17 @@ function product_tabs_slider_lvl_2($aProducts, $grupo) {
     $exit = false; //SI CAMBIA EL GRUPO Y YA HAVIA PUESTO SALE
    
     foreach ($aProducts as $eProducts ) {
-        if ($grupo == $eProducts['grupo']) {
-            if ($eProducts["valor_oferta"] == 1) {
-                $string_vNO = "vNO=O&";
-                $data_valor_oferta = "O";
-            }
-
-            e1($string_vNO, $data_valor_oferta, $eProducts['codigo_producto'], $eProducts['nombre_producto'], $eProducts['pvp'], $eProducts['pvp_incrementado'], $eProducts['imagen'], $eProducts['valor_oferta']);
-
-            $exit = true;
-        }else if($grupo != $eProducts['grupo'] && $exit) break;
+        echo "hola:";
+//        if ($grupo == $eProducts['grupo']) {
+//            if ($eProducts["valor_oferta"] == 1) {
+//                $string_vNO = "vNO=O&";
+//                $data_valor_oferta = "O";
+//            }
+//
+//            e1($string_vNO, $data_valor_oferta, $eProducts['codigo_producto'], $eProducts['nombre_producto'], $eProducts['pvp'], $eProducts['pvp_incrementado'], $eProducts['imagen'], $eProducts['valor_oferta']);
+//
+//            $exit = true;
+//        }else if($grupo != $eProducts['grupo'] && $exit) break;
         $cnt++;
     }
     echo $cnt;
