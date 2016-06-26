@@ -1,8 +1,8 @@
 <?php
 function __autoload($class_name){
-    //$root = "/var/www/html/M07/Uf4/PHP-DAO";
+    $root = "C:/xampp/htdocs/ELECVALLES";
     $curdir = getcwd();
-    chdir($curdir);
+    chdir($root);
 
     $nomBusiness="class".$class_name.".php";
     $nomDao=$class_name.".php";

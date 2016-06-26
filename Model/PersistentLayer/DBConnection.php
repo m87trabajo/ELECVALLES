@@ -28,7 +28,7 @@ class DBConnection extends PDO {
                 $dsn = 'mysql:host=' . $this->getHost() . ';dbname=' . $this->getDataBaseName() . ';charset=utf8mb4';
                 $this->setConn(new PDO($dsn, $this->getUser(), $this->getPassword()));
                 $this->getConn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo 'DBConnection-->Conectado<br/>';
+                //echo 'DBConnection-->Conectado<br/>';
             } catch (PDOException $e) {
                 ErrPDOCatch('DBConnection-->connect()', $e->getMessage(), $e->getCode());
                 exit();
@@ -37,7 +37,7 @@ class DBConnection extends PDO {
     }
     
     function __destruct() {
-        echo 'DBConnection-->Desconectado<br/>';
+        //echo 'DBConnection-->Desconectado<br/>';
         if ($this->getConn()) {
             $this->setConn(null);
         }

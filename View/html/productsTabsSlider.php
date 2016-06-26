@@ -77,12 +77,12 @@ function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto,
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="id_product">
-                                                                <span class="value"><?php $codigo_producto ;?></span>
+                                                                <span class="value"><?php echo $codigo_producto ;?></span>
                                                             </div>  
 
                                                             <div class="product_price">
-                                                                <span class="price"><?php $pvp ;?></span>
-                                                                <span class="price_before_discount"><?php $pvp_incrementado ;?></span>
+                                                                <span class="price"><?php echo $pvp ;?></span>
+                                                                <span class="price_before_discount"><?php echo $pvp_incrementado ;?></span>
                                                             </div><!-- /.product_price -->
 
                                                         </div><!-- /.product_info -->

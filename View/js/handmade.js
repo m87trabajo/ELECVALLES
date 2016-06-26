@@ -85,9 +85,9 @@ $(document).ready(function () {
 
         //alert("data");
         $.ajax({
-            async: true,//By default, all requests are sent asynchronously (i.e. this is set to true by default). 
+            async: true, //By default, all requests are sent asynchronously (i.e. this is set to true by default). 
             type: "POST",
-            dataType: "text", //The type of data that you're expecting back from the server.
+            dataType: "json", //The type of data that you're expecting back from the server.
             url: "Controller/ajaxGroupTabsSlider.php",
             //beforeSend:Enviar,
             success: Resultado,
@@ -99,7 +99,10 @@ $(document).ready(function () {
         e.preventDefault();
 
         function Resultado(data) { //on Ajax success
-            alert(data);
+            //alert(data);
+            $.each(data, function (i, item) {
+                alert(data[i]);
+            });
         }
         ;
 

@@ -8,11 +8,11 @@ Class Shop {
     function __construct($CompanyName) {
         $this->setCompanyName($CompanyName);
         $this->setArrAux(array());
-        echo "Shop-->Construido<br/>";
+        //echo "Shop-->Construido<br/>";
     }
 
     function __destruct() {
-        echo "Shop-->Destruido<br/>";
+        //echo "Shop-->Destruido<br/>";
     }
 
     function getCompanyName() {
@@ -49,10 +49,10 @@ Class Shop {
         $this->setArrAux($FetchProducts);
     }
 
-    public function TabsSliderAjaxRequestGroupProducts() {
+    public function TabsSliderAjaxRequestGroupProducts($group) {
         $daoshop = new daoShop();
-        $FetchProducts = $daoshop->FetchProducts();
-        $this->setArrAux($FetchProducts);
+        $FetchGroupProducts = $daoshop->FetchGroupProducts($group);
+        $this->setArrAux($FetchGroupProducts);
     }
 
 }
