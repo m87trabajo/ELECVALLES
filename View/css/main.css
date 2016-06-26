@@ -1,0 +1,394 @@
+/*===================================================================================*/
+/*  COLORES
+/*===================================================================================
+#096eb7 ; rgba(9, 110, 183,1)   ; AZUL PRINCIPAL
+#428bca ; rgba(66, 139, 202,1)  ; AZUL TEMA 2
+#1cea61 ; rgba(28, 234, 97,1)   ; VERDE
+#f44c4c ; rgba(244, 76, 76,1)   ; ROJO
+#3A3A3A ; rgba(58, 58, 58,1)    ; GRIS
+#e2e2e2 ; rgba(226, 226, 226) ; BLANCO GRISACEO
+#F1C40F ; rgba(241, 196, 15, 1) ; AMARILLO
+*/
+/*===================================================================================*/
+/*  RESPONSIVE
+/*===================================================================================*/
+/*Se establece el css en pantalla mas pequeña por defecto y con @media segun tamaño*/
+/*===================================================================================*/
+/*  FUENTES
+/*===================================================================================*/
+@font-face {
+    font-family: My_Open_Sans;
+    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato_Bold;
+    src: url(../fonts/Lato/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: Lato_Regular;
+    src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Exo_Medium;
+    src: url(../fonts/Exo/Exo-Medium.ttf);
+}
+
+@font-face {
+    font-family: Lato_Black;
+    src: url(../fonts/Lato/Lato-Black.ttf);
+}
+/*GLYPHICONS*/
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+/*tipo letra por defecto*/
+body{
+    font:normal 14px/14px My_Open_Sans;
+}
+img[src="images/blank.gif"] {
+  background: url("images/ajax.gif") no-repeat scroll center center #ffffff;
+}
+/*links sin decoracion*/
+a:hover,a:active,a:focus {
+    text-decoration: none;
+}
+
+/*===================================================================================*/
+/*GLOBAL--->MARGENES
+/*===================================================================================*/
+.m-t-10{
+    margin-top: 10px;
+}
+.m-t-15{
+    margin-top: 15px;
+}
+.m-t-20{
+    margin-top: 20px;
+}
+.outer-bottom-xs {
+    margin-bottom: 40px;
+}
+.first_margin_B_10{
+    margin-bottom: 10px;
+}
+.margin_T_B_10{
+    margin:10px 0px;
+}
+.outer-top-xs {
+    margin-top: 30px;
+}
+.tcenter{
+    text-align: center;
+}
+/*===================================================================================*/
+/*PRODUCT--->CONTENEDOR FOTO PRODUCTO, NOMBRE, FOTO, PRECIO, BOTONES
+/*index.html--->scroll_tabs, categorypage.html, detail.html
+/*===================================================================================*/
+/*posicion del div contenedor de producto*/
+.product {
+    position: relative;
+}
+.product .product_info {
+    margin-top:16px;
+}
+/*texto nombre articulo en scroll tabs index i detail*/
+.product .product_info .name {
+    font-size: 16px;
+    font-family: Lato_Bold;
+    min-height: 53px;/*evita problemas con las fotos*/
+}
+
+/*texto nombre articulo*/
+.product .product_info .name a {
+    color: #555;
+}
+
+/*precio artiuclo*/
+.product .product_info .product_price .price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    margin-right: 8px;
+}
+
+/*precio incrementado*/
+.product .product_info .product_price .price_before_discount {
+    text-decoration: line-through;
+    color: #d3d3d3;
+    font-weight: 400;
+    line-height: 30px;
+    font-size: 14px;
+}
+/*imagen producto de scroll_tabs, i category page*/
+.product .product_image .image img {
+    display: block;
+    width: 100%;
+}
+
+/*===================================================================================*/
+/*      BOTON AÑADIR AL CARRITO
+/*===================================================================================*/
+/*transicion de elementos dentro del boton, color de fondo, color letra, tamaño letra, tamaño linia*/
+.btn-primary {
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    background: #a8a8a8;/*GRIS CLARO*/
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    line-height: 22px;
+}
+/*parte izquiera boton añadir al carrito*/
+.add_cart_button .btn.btn-primary.icon {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background: #575757 ;/*GRIS OSCURO*/
+}
+
+
+/*:hover parte izquierda boton añadir al carrito, color letra*/
+li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.btn-group:active .btn.btn-primary.icon {
+    color: #abd07e ;/*VERDE UNICASE*/
+    background: #575757 ;/*GRIS OSCURO*/
+}
+/*despues de apretar boton retorna a color normal*/
+.btn.btn-primary:focus{
+    background: #a8a8a8;/*GRIS CLARO*/
+}
+/*botones whislist, compare*/
+.btn.btn-primary:hover, .btn.btn-primary:active{
+   background: #abd07e none repeat scroll 0 0; /*VERDE UNICASE*/
+}
+
+/*transicion elementos dentro de producto (botones)*/
+.product .cart {
+    margin-top: 5px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+    width: 100%;
+    z-index: 666;
+    left: 0px;
+}
+
+/*elementos derecha boton añadir al carrito (favorito i comparar)*/
+.product .cart .action ul li {
+    display: inline-block;
+}
+/*elementos derecha boton añadir al carrito (favorito i comparar) centrar en altura*/
+.product .cart .action ul li.lnk {
+    margin: 10px 0px;
+}
+
+
+/*===================================================================================*/
+/*      BOLITA ENCIMA PRODUCTO
+/*===================================================================================*/
+/*posicion bolita*/
+.product .product_image .tag {
+    position: absolute;
+}
+/*bolita tipo oferta encima producto*/
+.tag {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 38px;
+    width: 40px;
+    height: 40px;
+    text-transform: uppercase;
+    top: 2.5%;
+    z-index: 100;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    color: #fff;
+    right: 25px;
+    text-align: center;
+}
+/*texto bolita*/
+.tag span {
+    position: relative;
+    z-index: 100;
+}
+/*color bolita nuevo*/
+.tag.new {
+    background: #46aad7;
+}
+/*color bolita hot*/
+.tag.hot {
+    background: #ff7878;
+}
+/*color bolita vendido*/
+.tag.sale {
+    background: #abd07e none repeat scroll 0 0;
+}
+/*bolita descuento*/
+.hot-deals .hot-deal-wrapper .sale-offer-tag {
+    background: #ff7878 none repeat scroll 0 0;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 4%;
+    width: 50px;
+    z-index: 100;
+}
+/*testo bolita descuento*/
+.hot-deals .hot-deal-wrapper .sale-offer-tag span {
+    position: relative;
+    top: 16px;
+    z-index: 100;
+}
+
+/*carousel control button*/
+.custom-carousel .owl-controls {
+    position: absolute;
+    right: 0;
+    top: -22px;
+    width: 100%;
+    display: block;
+}
+/*boton atras carrousel*/
+.custom-carousel .owl-controls .owl-prev {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -36px;
+    right: 27px;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #dddddd;
+}
+/*posicion flecha dentro boton atras carrousel*/
+.custom-carousel .owl-controls .owl-prev:before {
+    color: #fff;
+    content: "\f104";
+    font-family: fontawesome;
+    font-size: 16px;
+    left: 6px;
+    position: absolute;
+    top: 2px;
+}
+/*boton siguiente carrousel*/
+.custom-carousel .owl-controls .owl-next {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -36px;
+    right: 0px;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #dddddd;
+}
+/*posicion flecha dentro boton siguiente carrousel*/
+.custom-carousel .owl-controls .owl-next:before {
+    content: "\f105";
+    font-family: fontawesome;
+    color: #fff;
+    font-size: 16px;
+    right: 6px;
+    position: absolute;
+    top: 2px;
+}
+/*===================================================================================*/
+/*  CATEGORY PAGE--->BREADCUMB
+/*===================================================================================*/
+/*color fondo */
+.breadcrumb {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    padding: 0;
+}
+.breadcrumb ul {
+    border-bottom: 1px solid #f2f2f2;
+    margin: auto;
+    text-align: right;
+}
+.breadcrumb ul li {
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+.breadcrumb ul li:last-child::after {
+    content: "";
+}
+.breadcrumb ul li::after {
+    color: #666666;
+    content: "/";
+    font-size: 12px;
+    line-height: 24px;
+    margin-left: 9px;
+    margin-right: -4px;
+    padding: 0;
+}
+.breadcrumb ul li.active a,.breadcrumb ul li.active {
+    color: #84b943;
+}
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*  RESPONSIVE
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/* Super Extra small(SXS) devices 0-->275*/
+@media (max-width:275px){
+
+}
+
+/* Extra small(XS) devices 276-->767*/
+@media (min-width:276px) {
+
+}
+
+/* Small devices (SM) 768-->992*/
+@media (min-width:768px){
+
+}
+
+/* Medium devices to Large (MD) 993-->1999*/
+@media (min-width:993px) {
+
+}
+
+/*  Large devices (LG) 992-->1999*/
+@media (min-width:1200px){
+
+}
+
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*  APUNTES
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*
+Extra small devices (phones, less than 768px)
+No media query since this is the default in Bootstrap
+
+Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) { ... }
+
+Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) { ... }
+
+Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) { ... }
+
+*/

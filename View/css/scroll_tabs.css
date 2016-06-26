@@ -1,0 +1,168 @@
+/*===================================================================================*/
+/*  SECTION--->SCROLL TABS
+/*===================================================================================*/
+section{
+  margin: 10px 0px;
+}
+
+/*texto nombre articulo*/
+.product .product_info .name {
+  min-height: 48px;
+}
+/*Titulo pestañas superiores tab de category page i detail page */
+.scroll_tabs .more_info_tab .new_product_title , .section-title{
+  font:bolder 20px/20px Lato_Bold;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+/*detail page upsell products*/
+.section-title {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+/*color :hover links pestañas superiores tab */
+.scroll_tabs .more_info_tab li a:hover, .scroll_tabs .nav_tab_line li a:focus,.scroll_tabs .nav_tab_line li.active a {
+  color:#abd07e;/*verde unicase*/
+}
+/*color :hover nombre producto*/
+.product .product_info .name a:hover, .product .product_info .name a:focus{
+  color:#abd07e;/*verde unicase*/
+}
+
+/*color :hover iconos desplazamiento carrousel*/
+.custom-carousel .owl-controls .owl-prev:hover, .custom-carousel .owl-controls .owl-next:hover, .custom-carousel .owl-controls .owl-prev:focus, .custom-carousel .owl-controls .owl-next:focus{
+ background: #84b943 none repeat scroll 0 0;
+}
+
+/* borde y padding pestañas superiores tab */
+.scroll_tabs .more_info_tab{
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 10px;
+}
+
+/*pestañas superiores tab texto espacio para botones control*/
+.scroll_tabs .nav_tab_line {
+  border-bottom: none;
+  margin-top: 10px;
+  margin-right: 55px;
+}
+
+/*pestañas superiores tab quita bordes a botones*/
+.scroll_tabs .nav_tab_line li.active a {
+  border: none;
+}
+
+/*pestañas superiores tab texto*/
+.scroll_tabs .nav_tab_line li a {
+  border: medium none;
+  box-shadow: none;
+  color: #666666;/*gris*/
+  font-weight: 500;
+  line-height: 15px;/*sino vibra*/
+  padding: 0px;
+  position: relative;
+  text-transform: uppercase;
+  margin:0px;
+}
+
+/*pestañas superiores tab quita fondo boton*/
+.scroll_tabs .nav_tab_line li a:hover,
+.scroll_tabs .nav_tab_line li a:focus {
+  background: rgba(0, 0, 0, 0);
+}
+
+/*margen entre pestañas superiores i fotos*/
+.outer_top_xs {
+  margin-top: 30px;
+}
+/*===================================================================================*/
+/*BOTON AÑADIR AL CARRITO
+/*===================================================================================*/
+/*botones carro*/
+.product .cart {
+  opacity: 0;
+}
+
+/*opacity 1 para ver boton*/
+.product:hover .cart {
+  opacity: 1;
+}
+
+/*margen top entre nombre articulo i foto*/
+.product .product_info .name {
+  margin-top: 4px;
+}
+
+/*normalmente links encima scroll_tabs se ven como bloque a partir de SMALL DEVICES inline-block*/
+.more_info_tab .nav_tab_line li{
+  margin:0px;
+  display: block;
+  float:none;
+}
+
+/*links encima scroll_tabs se ven como bloque sin padding*/
+.scroll_tabs .nav_tab_line li a {
+  padding: 0px;
+}
+
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*  RESPONSIVE
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/* Super Extra small(SXS) devices 0-->275*/
+@media (max-width:275px){
+
+}
+
+/* Extra small(XS) devices 276-->767*/
+@media (min-width:276px) {
+
+}
+
+/* Small devices (SM) 768-->992*/
+@media (min-width:768px){
+  /*links encima scroll_tabs se ven como inline-block y padding*/
+  .scroll_tabs .nav_tab_line li a {
+    padding: 0px 10px 0px 0px;
+  }
+  /*links encima scroll_tabs se alinean a derecha*/
+  .more_info_tab ul.nav_tab_line{
+    text-align: right;
+  }
+  /*links encima scroll_tabs se ven como inline-block*/
+  .more_info_tab .nav_tab_line li{
+    display: inline-block;
+  }
+
+
+  /*pestañas superiores tab flechita debajo pestañas enlaces*/
+  .scroll_tabs .nav_tab_line li a:hover:after, .scroll_tabs .nav_tab_line li.active a:after{
+    content: "\f0d7";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 50%;
+    top: 110%;
+    height: 100%;
+    margin-right: -4px;
+    margin-top: -4px;
+    width: 10px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+  }
+}
+
+/* Medium devices to Large (MD) 993-->1999*/
+@media (min-width:993px) {
+
+}
+
+/*  Large devices (LG) 992-->1999*/
+@media (min-width:1200px){
+  /*links encima scroll_tabs se ven como inline-block y padding*/
+  .scroll_tabs .nav_tab_line li a {
+    padding: 0px 20px 0px 0px;
+  }
+}

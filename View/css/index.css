@@ -1,0 +1,18 @@
+/*===================================================================================*/
+/*  SECTION--->SCROLL TABS
+/*===================================================================================*/
+section{
+  margin: 10px 0px;
+}
+/*padding entre productos del slider*/
+.product {
+	position: relative;
+	padding: 0 10px;
+}
+
+/*imagen producto de scroll_tabs, i category page*/
+.product .product_image .image img {
+    display: block;
+    height: 300px;
+    width: 100%;
+}

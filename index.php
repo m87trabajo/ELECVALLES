@@ -1,8 +1,5 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+require_once 'View/html/header.php';
+require_once 'View/html/menu.php';
+require_once 'Controller/generateProductsTabsSlider.php';
+require_once 'View/html/footer.php';
