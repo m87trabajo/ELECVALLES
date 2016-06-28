@@ -42,14 +42,14 @@ function d() { ;?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-content outer_top_xs">                                                   
+                            <div class="wrapper_products tab-content outer_top_xs">                                                   
 
 <?php } ;?>
 
 <?php
 
 function e($first_loop, $no_spaces) { ;?>                            
-                                <div id="<?php echo $no_spaces ;?>" class="tab-pane <?php echo $first_loop ;?>">  
+                                <div id="<?php echo $no_spaces ;?>" class="tab-pane<?php echo $first_loop ;?>">  
                                     <div class="product-slider">
                                         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
 
@@ -75,7 +75,7 @@ function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto,
                                                             <h3 class="name">
                                                                 <a href="detail.php?<?php echo $string_vNO . 'cod=' . $codigo_producto ;?>"><?php echo $nombre_producto ;?></a>
                                                             </h3>
-                                                            <div class="rating rateit-small"></div>
+<!--                                                            <div class="rating rateit-small"></div>-->
                                                             <div class="id_product">
                                                                 <span class="value"><?php echo $codigo_producto ;?></span>
                                                             </div>  
@@ -94,7 +94,7 @@ function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto,
                                                                         <button type="button" data-toggle="dropdown" class="btn btn-primary icon">
                                                                             <i class="fa fa-shopping-cart"></i>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-primary add_button" data_valor_oferta ="<?php $data_valor_oferta ;?>" data-value="<?php $codigo_producto ;?>">Añadir al carrito</button>
+                                                                        <button type="button" class="btn btn-primary add_button" data_valor_oferta ="<?php echo $data_valor_oferta ;?>" data-value="<?php echo $codigo_producto ;?>">Añadir al carrito</button>
 
                                                                     </li>
 
@@ -121,9 +121,9 @@ function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto,
 <?php
 
 function e2() { ;?>
-                            </div><!-- /.home-owl-carousel --> 
-                        </div><!-- /.product-slider -->
-                    </div><!-- /.tab-pane -->
+                                        </div><!-- /.home-owl-carousel --> 
+                                    </div><!-- /.product-slider -->
+                                </div><!-- /.tab-pane -->
 <?php } ;?>
 
 <?php

@@ -54,7 +54,7 @@ Class daoShop {
             $sql = 'SELECT grupo,codigo_producto,nombre_producto,pvp,pvp_incrementado,imagen,valor_oferta FROM f_random_products WHERE grupo = :group;';
             $query = $con->getConn()->prepare($sql);
             $query->bindParam(":group", $group);
-            $response = $con->executeQueryOne($query);
+            $response = $con->executeQueryAll($query);
         } catch (Exception $e) {
             ErrPDOCatch(get_class($this) . '-->FetchGroupProducts()', $e->getMessage(), $e->getCode());
             exit();
