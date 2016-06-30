@@ -5,7 +5,7 @@
 DROP DATABASE IF EXISTS tienda_marc;
 CREATE database IF NOT EXISTS tienda_marc;
 DEFAULT CHARACTER SET utf8
-DEFAULT COLLATE utf8_general_ci;
+DEFAULT COLLATE utf8_spanish_ci;
 USE tienda_marc;
 
 CREATE TABLE IF NOT EXISTS productos (

@@ -1,6 +1,6 @@
 <?php
 
-function a() { ;?>
+function A() { ;?>
     <div id = "top-banner-and-menu" class = "body-content " >
         <div class = "container">
             <div class = "row">
@@ -8,11 +8,11 @@ function a() { ;?>
 
 <?php
 
-function b($count) { ;?>
+function B() { ;?>
                 <section>
                     <div class = "col-lg-12 homebanner-holder">
                         <!--============================================= = SCROLL TABS ============================================= = -->
-                        <div class = "product-tabs-slider scroll_tabs wow fadeInUp">
+                        <div class = "scroll_tabs product-tabs-slider wow fadeInUp">
                             <div class = "more_info_tab clearfix ">
                                 <div class = "row">
                                     <div class = "col-lg-12">
@@ -26,7 +26,7 @@ function b($count) { ;?>
 
  <?php
 
-function c($first_loop, $no_spaces, $nameGrupo) { ;?>
+function C($first_loop, $no_spaces, $nameGrupo) { ;?>
 
     <li <?php echo $first_loop ;?>>
         <a data-transition-type="backSlide" href="#<?php echo $no_spaces ;?>" data-toggle="tab"><?php echo $nameGrupo ;?></a>
@@ -35,21 +35,20 @@ function c($first_loop, $no_spaces, $nameGrupo) { ;?>
 
 <?php
 
-function d() { ;?>
+function D() { ;?>
                                                 </ul><!-- /.nav-tabs -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="wrapper_products tab-content outer_top_xs">                                                   
-
 <?php } ;?>
 
 <?php
 
-function e($first_loop, $no_spaces) { ;?>                            
-                                <div id="<?php echo $no_spaces ;?>" class="tab-pane<?php echo $first_loop ;?>">  
+function E($no_spaces) { ;?>     
+                            <div class="tab-content wrapper_products outer_top_xs">  
+                                <div id="<?php echo $no_spaces ;?>" class="tab-pane active">  
                                     <div class="product-slider">
                                         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
 
@@ -57,7 +56,7 @@ function e($first_loop, $no_spaces) { ;?>
 
 <?php
 
-function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto, $pvp, $pvp_incrementado, $imagen, $valor_oferta) { ;?>
+function E_1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto, $pvp, $pvp_incrementado, $imagen, $valor_oferta) { ;?>
                                             <div class="item item-carousel">
                                                 <div class="products">
 
@@ -120,24 +119,24 @@ function e1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto,
 
 <?php
 
-function e2() { ;?>
+function E_2() { ;?>
                                         </div><!-- /.home-owl-carousel --> 
                                     </div><!-- /.product-slider -->
                                 </div><!-- /.tab-pane -->
+                            </div><!-- /.tab-content -->
 <?php } ;?>
 
 <?php
 
-function f() { ;?>
-                            </div><!-- /.tab-content -->
-                        </div><!-- /.scroll-tabs -->
+function F() { ;?>                            
+                        </div><!-- /.scroll_tabs -->
                     </div><!-- /.homebanner-holder -->
                 </section>
 <?php } ;?>
 
 <?php
 
-function g() { ;?>
+function G() { ;?>
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /#top-banner-and-menu -->

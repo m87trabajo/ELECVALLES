@@ -31,9 +31,11 @@ BLOCK1:BEGIN
             
             /*create table*/
 			SET @sql_text = concat('CREATE TABLE IF NOT EXISTS ',tablename,' 
-							(grupo CHAR(30) NOT NULL,
-							cantidad SMALLINT UNSIGNED,
-							cantidad_con_foto SMALLINT UNSIGNED);');
+                                                (grupo CHAR(30) NOT NULL,
+                                                cantidad SMALLINT UNSIGNED NOT NULL,
+                                                cantidad_con_foto SMALLINT UNSIGNED NOT NULL,
+                                                INDEX idx_grupo (grupo),
+                                                PRIMARY KEY (grupo))ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_spanish_ci;');
 			PREPARE stmt FROM @sql_text;
 			EXECUTE stmt;
 			DEALLOCATE PREPARE stmt;                     

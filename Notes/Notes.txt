@@ -1,3 +1,11 @@
 -Se utiliza Camel
 -En PHP no se utiliza "->'
+-En procedures de MYSQL poner NOT NULL,INDEX idx_grupo (grupo),PRIMARY KEY (grupo))ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_spanish_ci;
+-Comentarios Capitalize
+-En server
+To make this 'permanent', in my.cf:
+[client]
+default-character-set=utf8
+[mysqld]
+character-set-server = utf8
 

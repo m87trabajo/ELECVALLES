@@ -4,6 +4,7 @@ Class Shop {
 
     private $CompanyName;
     private $ArrAux = null;
+    private $VarAux = 0;
 
     function __construct($CompanyName) {
         $this->setCompanyName($CompanyName);
@@ -31,24 +32,36 @@ Class Shop {
         $this->ArrAux = $ArrAux;
     }
 
+    function getVarAux() {
+        return $this->VarAux;
+    }
+
+    function setVarAux($VarAux) {
+        $this->VarAux = $VarAux;
+    }
+
+    //------------------------MENU-------------------------------/
     public function MenuGroupsQuantitys($table) {
         $daoshop = new daoShop();
         $FetchMenuGroupsQuantitys = $daoshop->FetchMenuGroupsQuantitys($table);
         $this->setArrAux($FetchMenuGroupsQuantitys);
     }
 
+    //--------------------TABS SLIDER--------------------------//
     public function TabsSliderGroups() {
         $daoshop = new daoShop();
         $FetchGroups = $daoshop->FetchGroups();
         $this->setArrAux($FetchGroups);
     }
 
-    public function TabsSliderProducts() {
+    //--------------------TABS SLIDER--------------------------//
+    public function TabsSliderProductsByGroup($CantTabsSlider, $CantTabs, $CntGroups) {
         $daoshop = new daoShop();
-        $FetchProducts = $daoshop->FetchProducts();
-        $this->setArrAux($FetchProducts);
+        $FetchProductsByGroup = $daoshop->FetchProductsByGroup($CantTabsSlider, $CantTabs, $CntGroups);
+        $this->setArrAux($FetchProductsByGroup);
     }
 
+    //--------------------TABS SLIDER--------------------------//
     public function TabsSliderAjaxRequestGroupProducts($group) {
         $daoshop = new daoShop();
         $FetchGroupProducts = $daoshop->FetchGroupProducts($group);
