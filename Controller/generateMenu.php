@@ -24,13 +24,13 @@ function MenuGroups($tipo) {
         $shop->MenuGroupsQuantitys('a_grupo_cantidad'); //SELECT grupo,cantidad FROM a_grupo_cantidad
         $aGrupoCantidad = $shop->getArrAux();
 
-        $string_1 = '<div class="col-xs-12 col-sm-6 col-md-4 ancho_max_RS_MD">';
+        $string_1 = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">';
         $string_2 = 'category_page.php?vNO=N&vGDFS=';
     } else if ($tipo == 'ofertas') {
         $shop->MenuGroupsQuantitys('a_grupo_oferta_cantidad'); //SELECT grupo,cantidad FROM a_grupo_oferta_cantidad
         $aGrupoCantidad = $shop->getArrAux();
 
-        $string_1 = '<div class="col-xs-12 ancho_max_RS_MD">';
+        $string_1 = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">';
         $string_2 = 'category_page.php?vNO=O&vGDFS=';
     }
 

@@ -167,7 +167,7 @@ require_once 'Controller/generateMenu.php';
 
                                     <a class="dropdown-toggle hvr-underline-from-left " data-toggle="dropdown" data-hover="dropdown" href="#">PRODUCTOS<span class="fa fa-chevron-down hvr-icon-down "></span>
                                     </a>
-                                    <ul class="dropdown-menu ancho_max_RS_MD"><!--MENU LVL-2-->
+                                    <ul class="dropdown-menu container"><!--MENU LVL-2-->
                                         <li>
                                             <div class="padding_dropdown_RS_XS">
                                                 <div class="row">
@@ -175,7 +175,6 @@ require_once 'Controller/generateMenu.php';
                                                     <?php
                                                     echo MenuGroups("productos");
                                                     ?>
-
                                                 </div><!--END ROW-->
                                             </div>
                                         </li>
@@ -187,7 +186,7 @@ require_once 'Controller/generateMenu.php';
                                 <li class="dropdown"><!--MENU LVL-1-->
                                     <a class="dropdown-toggle hvr-underline-from-left " data-toggle="dropdown" data-hover="dropdown" href="#">OFERTAS<span class="fa fa-chevron-down hvr-icon-down "></span>
                                     </a>
-                                    <ul class="dropdown-menu ancho_max_RS_MD">
+                                    <ul class="dropdown-menu container Container_LG"><!--MENU LVL-2-->
                                         <li>
                                             <div class="padding_dropdown_RS_XS">
                                                 <div class="row">

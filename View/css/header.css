@@ -3,128 +3,128 @@
 /*===================================================================================*/
 /*fuente top header*/
 #top_header a, #top_header p  {
-	color: white;
-	line-height: 20px;
-	text-shadow: 1px 1px 0px #000000;
-	margin:0px;
+    color: white;
+    line-height: 20px;
+    text-shadow: 1px 1px 0px #000000;
+    margin:0px;
 }
 
 /*fuente link:hover,active,focus*/
 #top_header a:hover .top_links, #top_header a:hover .icon_top_links,
 #top_header a:active .top_links, #top_header a:active .icon_top_links,
 #top_header a:focus .top_links, #top_header a:focus .icon_top_links{
-	color:#3A3A3A;/*GRIS*/
-	text-shadow: none;
+    color:#3A3A3A;/*GRIS*/
+    text-shadow: none;
 }
 
 /*fondo top header*/
 #top_header {
-	background-color: #428bca;/*AZUL TEMA 2*/
+    background-color: #428bca;/*AZUL TEMA 2*/
 }
 #top_header .lista_top_header{
-	padding: 0;
+    padding: 0;
 }
 /*links top header derecha <li> --LVL 1-- y <li> --LVL 2--sin padding y aliniado centro todos excepto !LG*/
 #top_header ul.lista_top_header li ,#top_header ul.lista_top_header a > ul > li{
-	text-align: center;
-	padding: 0px;
+    text-align: center;
+    padding: 0px;
 }
 /*===================================================================================*/
 /*  HEADER--->MAIN_HEADER
 /*===================================================================================*/
 /*fuente*/
 #main_header a{
-	font:bold 18px/18px Lato_Bold;
-	color:#096eb7;
-	text-transform: uppercase;
+    font:bold 18px/18px Lato_Bold;
+    color:#096eb7;
+    text-transform: uppercase;
 }
 
 /*fuente link:hover*/
 #mini_menu li > a:hover,
 #mini_menu li > a:active{
-	color:#3A3A3A;/*GRIS*/
+    color:#3A3A3A;/*GRIS*/
 }
 
 /*margen superior inferior parte central menu  normalmente 18px a partir de SMALL 30px*/
 #main_header{
-	margin: 18px 0px 9px 0px;
+    margin: 18px 0px 9px 0px;
 }
 
 /*ancho titulo web normalmente en centro excepto a partir de SMALL que ira a izquierda*/
 #main_header_logo{
-	text-align: center;
+    text-align: center;
 }
 /*conjunto logo elecvalles.com*/
 #main_header_logo img{
-	float: none;
+    float: none;
 }
 
 /*logo elecvalles.com*/
 #main_header_logo img.logo{
-	height:70px;
+    height:70px;
 }
 
 /*letras logo elecvalles.com*/
 #main_header_logo img.letras{
-	height:40px;
+    height:40px;
 }
 
 
 /*titulo web*/
 #main_header_logo h1{
-	font:normal 36px/46px Exo_Medium;
-	margin:0px;
-	line-height: 70px;
-	display: inline-block;
-	float: none;
+    font:normal 36px/46px Exo_Medium;
+    margin:0px;
+    line-height: 70px;
+    display: inline-block;
+    float: none;
 }
 
 /*imagen carro derecha*/
 #mini_menu img.carrito_img {
-	width: 60px;
+    width: 60px;
 }
 
 /*redonda contador productos*/
 .basket_item_count{
-	position: absolute;
-	font:bold 14px/18px My_Open_Sans;
-	text-align: left;
-	padding-left: 0px;
-	padding-top: 1px;
-	background: #F1C40F none repeat scroll 0 0;/*AMARILLO*/
-	color: #fff;
-	border-radius: 20px;
-	height: 20px;
-	width: 20px;
-	top: 0px;
+    position: absolute;
+    font:bold 14px/18px My_Open_Sans;
+    text-align: left;
+    padding-left: 0px;
+    padding-top: 1px;
+    background: #F1C40F none repeat scroll 0 0;/*AMARILLO*/
+    color: #fff;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    top: 0px;
 }
 
 /*parte drecha main_header (MI CUENTA,CARRITO, IMG CARRITO) aliniado a derecha
  normalmente en centro excepto a partir de SMALL que ira a derecha*/
 #mini_menu{
-	margin-bottom: 0;
-	padding-top: 18px;
-	text-align: center;
+    margin-bottom: 0;
+    padding-top: 18px;
+    text-align: center;
 }
 
 /*elementos lista mini-menu*/
 #mini_menu li{
-	padding: 0;
-	line-height: 60px;
+    padding: 0;
+    line-height: 60px;
 }
 
 /*cuando hacemos hover sobre link carrito e imagen muestra dropdown
 #mini_menu li:nth-child(2)> a:hover + #carro_caja {
-	display: block;
+        display: block;
 }*/
 
 /*menu desplegable mini-menu*/
 .dropdown_cart_menu{
-	background: #fff none repeat scroll 0 0;
-	border-top: 3px solid #f5565b;/*ROJO */
-	margin-top: 0px;
-	min-width: 300px;
-	padding: 0;
+    background: #fff none repeat scroll 0 0;
+    border-top: 3px solid #f5565b;/*ROJO */
+    margin-top: 0px;
+    min-width: 300px;
+    padding: 0;
 }
 /*resultados carro*/
 #carro_resultados .top-cart-title {
@@ -155,12 +155,12 @@
 }
 /*imagen item resultados carro*/
 #carro_resultados .top-cart-item-image img{
-	width: 44px;
-	height: 44px;
+    width: 44px;
+    height: 44px;
 }
 
 #carro_resultados {
-	line-height: 20px;
+    line-height: 20px;
 }
 
 /*item resultados carro*/
@@ -177,7 +177,7 @@
 }
 /*item resultados carro*/
 #carro_resultados td {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 #carro_resultados a.top-cart-item-desc  {
@@ -214,10 +214,10 @@
     padding: 15px;
 }
 #carro_resultados .top-checkout-price{
-	font-size: 20px;
-	font-weight: 900;
-	color: #3A3A3A ; /*GRIS*/
-	float: left;
+    font-size: 20px;
+    font-weight: 900;
+    color: #3A3A3A ; /*GRIS*/
+    float: left;
 }
 
 /*===================================================================================*/
@@ -226,36 +226,36 @@
 /*LEVEL 1*/
 /*contenedor footer_header*/
 #footer_header nav{
-	background: rgba(66, 139, 202,1) none repeat scroll 0 0; /*AZUL TEMA 2*/
+    background: rgba(66, 139, 202,1) none repeat scroll 0 0; /*AZUL TEMA 2*/
 }
 
 /*link barra de menu activa*/
 #menu .navbar-nav > .active > a {
-	background-color: rgba(9, 110, 183,1); /*AZUL PRINCIPAL*/
+    background-color: rgba(9, 110, 183,1); /*AZUL PRINCIPAL*/
 }
 
 /*link barra de menu abierta o hover*/
 #menu .navbar-nav > .open > a , #menu .navbar-nav > a:hover{
-	background-color: rgba(9, 110, 183,0.6); /*AZUL PRINCIPAL*/
-	display:block;
+    background-color: rgba(9, 110, 183,0.6); /*AZUL PRINCIPAL*/
+    display:block;
 }
 
 /*fuente LVL-1- (PRODUCTOS, OFERTAS, SERVICIOS, NOTICIAS)*/
 #menu ul.navbar-nav > li > a{
-	font:normal 18px/18px Lato_Black;
-	color: white;
-	text-shadow: 1px 1px 0px #000000;
+    font:normal 18px/18px Lato_Black;
+    color: white;
+    text-shadow: 1px 1px 0px #000000;
 }
 
 /*texto MENU cuando entramos en XS fuente navbar-header en modo XS*/
 #navegador .navbar-header a{
-	font:normal 22px/22px Lato_Black;
-	text-transform: uppercase;
-	color: white;
+    font:normal 22px/22px Lato_Black;
+    text-transform: uppercase;
+    color: white;
 }
 /*margen entre texto i flechita mira hacia abajo*/
 .hvr-icon-down{
-	margin-left: 15px;
+    margin-left: 15px;
 }
 
 /*LEVEL 2*/
@@ -263,223 +263,234 @@
 
 /*fuente LVL-2-*/
 .links a{
-	font:normal 14px/14px Lato_Regular;
-	color: #3A3A3A;
-	text-decoration: none;
+    font:normal 14px/14px Lato_Regular;
+    color: #3A3A3A;
+    text-decoration: none;
 }
 /*fuente LVL-2-*/
 .links >li > span{
-	float:right;
-	margin: 0 0 0 26px;
+    float:right;
+    margin: 0 0 0 26px;
 }
 /*hvr-icon-forward flechitas dentro de dropdown menu lista elementos*/
 .links span{
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 /*margen links dentro del menu desplegable*/
 .links li{
-	margin:5px 0px;
+    margin:5px 0px;
 }
 /*margen links dentro del menu desplegable los ultimos*/
 .links li:last-child{
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 /*ancho total columna parte derecha inputs*/
 #menu .col_ancho_total{
-	width: 100%;
-	width: -moz-available;          /* WebKit-based browsers will ignore this. */
-	width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
 }
 
 /*quita padding por defecto a dropdown-menu*/
 #menu ul.dropdown-menu{
-	background-color:white;
-	padding: 0px;
+    background-color:white;
+    padding: 0px;
 }
 /*posicion relativa o absoluta segun tamaño de los selects menu dropdown-menu*/
 #menu #select_1+ul.dropdown-menu ,#menu #select_2+ul.dropdown-menu{
-	position: relative;
-	text-align: center;
-	width: inherit;
+    position: relative;
+    text-align: center;
+    width: inherit;
 }
 
 /*si es mas pequeño que small 767px padding de dropdown-menu*/
 .padding_dropdown_RS_XS{
-	padding: 10px 15px;
+    padding: 10px 15px;
 }
+
+
+
+
 
 /*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
 /*  RESPONSIVE
 /*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
 /* Super Extra small(SXS) devices 0-->275*/
 @media (max-width:275px){
-	/*========================*/
-	/*  HEADER--->TOP_HEADER
-	/*========================*/
-	/*oculta icono carro */
-	.hidden_sxs{
-		display: none !important;
-	}
-	/*cuando es SXS pasamos a line height 18 porque no ahy imagen carro*/
-	#mini_menu li{
-		line-height: 18px;
-	}
+    /*========================*/
+    /*  HEADER--->TOP_HEADER
+    /*========================*/
+    /*oculta icono carro */
+    .hidden_sxs{
+        display: none !important;
+    }
+    /*cuando es SXS pasamos a line height 18 porque no ahy imagen carro*/
+    #mini_menu li{
+        line-height: 18px;
+    }
 }
 
 /* Extra small(XS) devices 276-->767*/
 @media (min-width:276px) {
-	/*========================*/
-	/*  HEADER--->MAIN_HEADER
-	/*========================*/
-	/*recupera line-height en modo XS titulo web*/
-	#main_header_logo {
-		font:normal 36px/70px Exo_Medium;
-	}
+    /*========================*/
+    /*  HEADER--->MAIN_HEADER
+    /*========================*/
+    /*recupera line-height en modo XS titulo web*/
+    #main_header_logo {
+        font:normal 36px/70px Exo_Medium;
+    }
 
-	/*imagen carro*/
-	#mini_menu img.carrito_img{
-		float: none;
-	}
-	/*redonda contador carro*/
-	.basket_item_count{
-		right:38%;
-	}
+    /*imagen carro*/
+    #mini_menu img.carrito_img{
+        float: none;
+    }
+    /*redonda contador carro*/
+    .basket_item_count{
+        right:38%;
+    }
 
-	/*quita padding elementos del form del menu*/
-	#menu .row form{
-		padding:10px 15px;
-	}
+    /*quita padding elementos del form del menu*/
+    #menu .row form{
+        padding:10px 15px;
+    }
 
-	.sin_padding_RS_LG{
-		padding: 0px 15px;
-	}
-	/*arregla bordes botones dispositivos SM en adeleante*/
-	#inp_buscar,#select_1, #select_2,#btn_buscar{
-		border-radius: 4px;
-	}
+    .sin_padding_RS_LG{
+        padding: 0px 15px;
+    }
+    /*arregla bordes botones dispositivos SM en adeleante*/
+    #inp_buscar,#select_1, #select_2,#btn_buscar{
+        border-radius: 4px;
+    }
 }
 
 /* Small devices (SM) 768-->992*/
 @media (min-width:768px){
-	/*========================*/
-	/*  HEADER--->MAIN_HEADER
-	/*========================*/
-	/*margen entre main header 10 inferior pk ja tiene 20 de imagen carro */
-	#main_header{
-		margin: 30px 0px;
-	}
+    /*========================*/
+    /*  HEADER--->MAIN_HEADER
+    /*========================*/
+    /*margen entre main header 10 inferior pk ja tiene 20 de imagen carro */
+    #main_header{
+        margin: 30px 0px;
+    }
 
-	/*conjunto logo elecvalles.com*/
-	#main_header_logo img{
-		float:left;
-	}
-	/*logo elecvalles.com*/
-	#main_header_logo img.logo{
-		height:70px;
-	}
+    /*conjunto logo elecvalles.com*/
+    #main_header_logo img{
+        float:left;
+    }
+    /*logo elecvalles.com*/
+    #main_header_logo img.logo{
+        height:70px;
+    }
 
-	/*letras logo elecvalles.com*/
-	#main_header_logo img.letras{
-		height:40px;
-		margin:15px 0px 0px 15px;
-	}
+    /*letras logo elecvalles.com*/
+    #main_header_logo img.letras{
+        height:40px;
+        margin:15px 0px 0px 15px;
+    }
 
-	/*titulo elecvalles.com flotante izquierda*/
-	#main_header_logo h1{
-		margin-left: 20px;
-		float: left;
-	}
+    /*titulo elecvalles.com flotante izquierda*/
+    #main_header_logo h1{
+        margin-left: 20px;
+        float: left;
+    }
 
-	/*parte drecha main_header (MI CUENTA,CARRITO, IMG CARRITO) aliniado a derecha*/
-	#mini_menu{
-		text-align: right;
-		margin-bottom: 0;
-		padding-top: 9px;
-	}
+    /*parte drecha main_header (MI CUENTA,CARRITO, IMG CARRITO) aliniado a derecha*/
+    #mini_menu{
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 9px;
+    }
 
-	/*redonda contador carro*/
-	.basket_item_count{
-		right:23%;
-	}
-	/*posicion relativa o absoluta segun tamaño de los selects menu dropdown-menu*/
-	#menu #select_1+ul.dropdown-menu ,#menu #select_2+ul.dropdown-menu{
-		position: absolute;
-		text-align: left;
-	}
-	/*========================*/
-	/*  HEADER--->FOOTER_HEADER
-	/*========================*/
-	/*quita padding elementos barra menu*/
-	.sin_padding_RS_LG{
-		padding-left: 0;
-		padding-right: 0;
-	}
-	/*quita padding elementos del form del menu*/
-	#menu .row form{
-		padding:0;
-	}
-	/*arregla bordes botones dispositivos SM en adeleante*/
-	#inp_buscar{
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-	/*arregla bordes botones dispositivos SM en adeleante*/
-	#select_1, #select_2{
-		border-radius: 0;
-	}
-	/*arregla bordes botones dispositivos SM en adeleante*/
-	#btn_buscar{
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-	}
+    /*redonda contador carro*/
+    .basket_item_count{
+        right:23%;
+    }
+    /*posicion relativa o absoluta segun tamaño de los selects menu dropdown-menu*/
+    #menu #select_1+ul.dropdown-menu ,#menu #select_2+ul.dropdown-menu{
+        position: absolute;
+        text-align: left;
+    }
+    /*========================*/
+    /*  HEADER--->FOOTER_HEADER
+    /*========================*/
+    /*quita padding elementos barra menu*/
+    .sin_padding_RS_LG{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /*quita padding elementos del form del menu*/
+    #menu .row form{
+        padding:0;
+    }
+    /*arregla bordes botones dispositivos SM en adeleante*/
+    #inp_buscar{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    /*arregla bordes botones dispositivos SM en adeleante*/
+    #select_1, #select_2{
+        border-radius: 0;
+    }
+    /*arregla bordes botones dispositivos SM en adeleante*/
+    #btn_buscar{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 
-	/*si es mas grande que small 767px padding de dropdown-menu*/
-	.padding_dropdown_RS_XS{
-		padding: 20px 30px;
-	}
-
-	#menu .ancho_max_RS_MD {
-		width: -moz-max-content;
-		width: -webkit-max-content;
-		width: max-content;		
-	}
+    /*si es mas grande que small 767px padding de dropdown-menu*/
+    .padding_dropdown_RS_XS{
+        padding: 20px 30px;
+    }
+    /*
+    .Container_LG{
+        width:570px;
+    }
+    /*ERROR*/
+    /*	#menu .ancho_max_RS_MD {
+                    width: -moz-max-content;
+                    width: -webkit-max-content;
+                    width: max-content;		
+            }*/
 }
 
 /* Medium devices to Large (MD) 993-->1999*/
 @media (min-width:993px) {
-	/*========================*/
-	/*  HEADER--->MAIN_HEADER
-	/*========================*/
-	/*redonda contador carro*/
-	.basket_item_count{
-		right:31%;
-	}
+    /*========================*/
+    /*  HEADER--->MAIN_HEADER
+    /*========================*/
+    /*redonda contador carro*/
+    .basket_item_count{
+        right:31%;
+    }
+    .Container_LG{
+        width:996px;
+    }
 
 
 }
 
-/*  Large devices (LG) 992-->1999*/
+/*  Large devices (LG) 2000-->X*/
 @media (min-width:1200px){
-	/*========================*/
-	/*  HEADER--->MAIN_HEADER
-	/*========================*/
-	/*redonda contador carro*/
-	.basket_item_count{
-		right:26%;
-	}
-	/*========================*/
-	/*  HEADER--->FOOTER_HEADER
-	/*========================*/
-	/*si LG barra de busqueda a derecha*/
-	#menu .navbar_right_RS_LG{
-		float:right;
-	}
-	/*ancho total columna parte derecha inputs*/
-	#menu #select_1.col_ancho_total, #menu #select_2.col_ancho_total{
-/*		width: 115px;*/
-	}
+    /*========================*/
+    /*  HEADER--->MAIN_HEADER
+    /*========================*/
+    /*redonda contador carro*/
+    .basket_item_count{
+        right:26%;
+    }
+    /*========================*/
+    /*  HEADER--->FOOTER_HEADER
+    /*========================*/
+    /*si LG barra de busqueda a derecha*/
+    #menu .navbar_right_RS_LG{
+        float:right;
+    }
+    /*ancho total columna parte derecha inputs*/
+    #menu #select_1.col_ancho_total, #menu #select_2.col_ancho_total{
+        /*		width: 115px;*/
+    }
 
 }
 
