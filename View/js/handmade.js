@@ -79,137 +79,164 @@ $(document).ready(function () {
  /*===================================================================================*/
 $(document).ready(function () {
     $(".scroll_tabs .nav_tab_line li a").on("click", function (e) {
+        var elementA = $(this); //OBJECT CLICKED
+        var href = elementA.attr("href");//#BAÑO_Y_GRIFERÍA Obtiene de new-products nav nav-tabs nav_tab_line el nombre de grupo apretado
 
-        var href = $(this).attr("href");//Obtiene de new-products nav nav-tabs nav_tab_line el nombre de grupo apretado
-        href = href.replace(/#/gi, ""); //Perform a global, case-insensitive replacement:
-        href = href.replace(/_/gi, " "); //BAÑO Y GRIFERÍA
+        if ($(href).length === 0) {
+            var nameGroupUnderScore = href.replace(/#/gi, ""); //BAÑO_Y_GRIFERÍA Perform a global, case-insensitive replacement:
+            var nameGroup = nameGroupUnderScore.replace(/_/gi, " "); //BAÑO Y GRIFERÍA
+            var elemSection = elementA.closest("section");//Elemento <section> hacia arriba mas cercando del elemento apretado
+            var WrapperProducts_TBS = elemSection.find(".WrapperProducts_TBS");//Contenedor dnd se generan el prodcut tab slider del grupo
 
-        //Llama a Controller/ajaxGroupTabsSlider.php pasandole por parametro el NOMBRE del GRUPO
-        $.ajax({
-            async: true, //By default, all requests are sent asynchronously (i.e. this is set to true by default). 
-            type: "POST",
-            dataType: "json", //The type of data that you're expecting back from the server.
-            url: "Controller/ajaxGroupTabsSlider.php",
-            //beforeSend:Enviar,
-            success: Resultado,
-            //error:Fallos,
-            data: {
-                product_code: href
+            //Llama a Controller/ajaxGroupTabsSlider.php pasandole por parametro el NOMBRE del GRUPO
+            $.ajax({
+                async: true, //By default, all requests are sent asynchronously (i.e. this is set to true by default). 
+                type: "POST",
+                dataType: "json", //The type of data that you're expecting back from the server.
+                url: "Controller/ajaxGroupTabsSlider.php",
+                beforeSend: BeforeLoad,
+                success: Resultado,
+                error: Fail,
+                data: {
+                    product_code: nameGroup
+                }
+            });
+            e.preventDefault();
+
+            function BeforeLoad() {
+                elemSection.find(".WrapperProducts_TBS > div").removeClass("active");
+                WrapperProducts_TBS.prepend('<div class="ajaxLoad"><img src="View/img/ajaxLoad.gif"></div>');
             }
-        })
-        e.preventDefault();
+            //Si Ajax succes
+            function Resultado(data) { //on Ajax success
 
-        //Si Ajax succes
-        function Resultado(data) { //on Ajax success
-            var html = '';//Contiene conjuto de productos de un grupo a insertar
-            var string_vNO = 'vNO=N&';
-            var data_valor_oferta = 'N';
+                var html = '';//Contiene conjuto de productos de un grupo a insertar
+                var string_vNO = 'vNO=N&';
+                var data_valor_oferta = 'N';
+                var sHotNewSale = 'new';//Modificar tmb en generateProductsTabsSlider.php 
 
-            var nameGroup = data[0]['grupo'];// #BAÑO_Y_GRIFERÍA
-            nameGroup = nameGroup.replace(/ /gi, "_"); //Perform a global, case-insensitive replacement:
+                var elementH3 = elemSection.find("h3.new_product_title");
+                elementH3.text(nameGroup);
 
+                var elementLi = elemSection.find("ul.nav_tab_line > li");
+                elementLi.removeClass("hide");
+                elementA.closest("li").addClass("hide");
 
-            var owl = $('#' + nameGroup);
-            var owl2 = owl.find(".home-owl-carousel");
-            
-            if ($("#" + nameGroup).length ==0) {
-                var elemSection=$('a[href="#'+nameGroup+'"]').closest( "section" );
-                var wrapper_products=elemSection.find(".wrapper_products");
-                elemSection.find(".wrapper_products > div").removeClass("active");
+                elemSection.find(".WrapperProducts_TBS > div").removeClass("active");
 
-                html+='<div id='+nameGroup+' class="tab-pane active">\n';  
-                html+=      '<div class="product-slider">\n';
-                html+=          '<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >\n';
+                html += '<div id=' + nameGroupUnderScore + ' class="tab-pane active">\n';
+                html +=     '<div class="product-slider">\n';
+                html +=         '<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >\n';
 
 
                 $.each(data, function (i, item) {
-                        html+=        '<div class="item item-carousel">\n';
-                        html+=            '<div class="products">\n';
+                    if (item['valor_oferta'] == 1) {
+                        sHotNewSale = 'hot';
+                    }
+                    html+=        '<div class="item item-carousel">\n';
+                    html+=            '<div class="products">\n';
 
-                        html+=                '<div class="product">\n';
-                        html+=                    '<div class="product_image">\n';
-                        html+=                        '<div class="image">\n';
-                        html+=                           '<a href="detail.php?'+string_vNO + 'cod='+ item['codigo_producto'] +'"><img  src="img_productos/'+item['imagen']+'.jpg" alt="'+item['nombre_producto']+'"></a>\n';
-                        html+=                        '</div><!-- /.image -->\n';
+                    html+=                '<div class="product">\n';
+                    html+=                    '<div class="product_image">\n';
+                    html+=                        '<div class="image">\n';
+                    html+=                           '<a href="detail.php?'+string_vNO + 'cod='+ item['codigo_producto'] +'"><img  src="img_productos/'+item['imagen']+'.jpg" alt="'+item['nombre_producto']+'"></a>\n';
+                    html+=                        '</div><!-- /.image -->\n';
 
-                        html+=                        '<div class="tag new"><span>new</span></div>\n';
-                        html+=                    '</div><!-- /.product_image -->\n';
+                    html+=                        '<div class="tag ' + sHotNewSale + '"><span>' + sHotNewSale + '</span></div>\n';
+                    html+=                    '</div><!-- /.product_image -->\n';
 
-                        html+=                    '<div class="product_info text-left">\n';
-                        html+=                        '<h3 class="name">\n';
-                        html+=                            '<a href="detail.php?'+string_vNO + 'cod='+ item['codigo_producto'] +'">'+item['nombre_producto']+'</a>\n';
-                        html+=                                '</h3>\n';
-                       // html+=                        '<div class="rating rateit-small"></div>\n';
-                        html+=                        '<div class="id_product">\n';
-                        html+=                            '<span class="value">'+ item['codigo_producto'] +'</span>\n';
-                        html+=                        '</div>\n';  
+                    html+=                    '<div class="product_info text-left">\n';
+                    html+=                        '<h3 class="name">\n';
+                    html+=                            '<a href="detail.php?'+string_vNO + 'cod='+ item['codigo_producto'] +'">'+item['nombre_producto']+'</a>\n';
+                    html+=                                '</h3>\n';
+                    html+=                        '<div class="rating rateit-small"></div>\n';
+                    html+=                        '<div class="id_product">\n';
+                    html+=                            '<span class="value">'+ item['codigo_producto'] +'</span>\n';
+                    html+=                        '</div>\n';  
 
-                        html+=                        '<div class="product_price">\n';
-                        html+=                            '<span class="price">'+item['pvp']+'</span>\n';
-                        html+=                            '<span class="price_before_discount">'+item['pvp_incrementado']+'</span>\n';
-                        html+=                        '</div><!-- /.product_price -->\n';
+                    html+=                        '<div class="product_price">\n';
+                    html+=                            '<span class="price">'+item['pvp']+'</span>\n';
+                    html+=                            '<span class="price_before_discount">'+item['pvp_incrementado']+'</span>\n';
+                    html+=                        '</div><!-- /.product_price -->\n';
 
-                        html+=                    '</div><!-- /.product_info -->\n';
-                        html+=                    '<div class="cart clearfix">\n';
+                    html+=                    '</div><!-- /.product_info -->\n';
+                    html+=                    '<div class="cart clearfix">\n';
 
-                        html+=                        '<div class="action">\n';
-                        html+=                            '<ul class="list-unstyled">\n';
-                        html+=                                '<li class="add_cart_button btn-group">\n';
-                        html+=                                    '<button type="button" data-toggle="dropdown" class="btn btn-primary icon">\n';
-                        html+=                                        '<i class="fa fa-shopping-cart"></i>\n';
-                        html+=                                    '</button>\n';
-                        html+=                                    '<button type="button" class="btn btn-primary add_button" data_valor_oferta ="'+data_valor_oferta+'" data-value="'+ item['codigo_producto'] +'">Añadir al carrito</button>\n';
+                    html+=                        '<div class="action">\n';
+                    html+=                            '<ul class="list-unstyled">\n';
+                    html+=                                '<li class="add_cart_button btn-group">\n';
+                    html+=                                    '<button type="button" data-toggle="dropdown" class="btn btn-primary icon">\n';
+                    html+=                                        '<i class="fa fa-shopping-cart"></i>\n';
+                    html+=                                    '</button>\n';
+                    html+=                                    '<button type="button" class="btn btn-primary add_button" data_valor_oferta ="'+data_valor_oferta+'" data-value="'+ item['codigo_producto'] +'">Añadir al carrito</button>\n';
 
-                        html+=                                '</li>\n';
+                    html+=                                '</li>\n';
 
-                        html+=                                '<li class="lnk wishlist">\n';
-                        html+=                                    '<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">\n';
-                        html+=                                        '<i class="fa fa-heart"></i>\n';
-                        html+=                                    '</a>\n';
-                        html+=                                '</li>\n';
+                    html+=                                '<li class="lnk wishlist">\n';
+                    html+=                                    '<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">\n';
+                    html+=                                        '<i class="fa fa-heart"></i>\n';
+                    html+=                                    '</a>\n';
+                    html+=                                '</li>\n';
 
-                        html+=                                '<li class="lnk">\n';
-                        html+=                                    '<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">\n';
-                        html+=                                        '<i class="fa fa-retweet"></i>\n';
-                        html+=                                    '</a>\n';
-                        html+=                                '</li>\n';
-                        html+=                            '</ul>\n';
-                        html+=                        '</div><!-- /.action -->\n';
-                        html+=                    '</div><!-- /.cart -->\n';
-                        html+=                '</div><!-- /.product -->\n';
+                    html+=                                '<li class="lnk">\n';
+                    html+=                                    '<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">\n';
+                    html+=                                        '<i class="fa fa-retweet"></i>\n';
+                    html+=                                    '</a>\n';
+                    html+=                                '</li>\n';
+                    html+=                            '</ul>\n';
+                    html+=                        '</div><!-- /.action -->\n';
+                    html+=                    '</div><!-- /.cart -->\n';
+                    html+=                '</div><!-- /.product -->\n';
 
-                        html+=            '</div><!-- /.products -->\n';
-                        html+=        '</div><!-- /.item -->\n';    
+                    html+=            '</div><!-- /.products -->\n';
+                    html+=        '</div><!-- /.item -->\n';    
                 });
 
-                html+=          '</div><!-- /.home-owl-carousel -->\n';
-                html+=      '</div><!-- /.product-slider -->\n';
-                html+='</div><!-- /.tab-pane -->\n';
-            
-                wrapper_products.append(html);
+                html +=         '</div><!-- /.home-owl-carousel -->\n';
+                html +=     '</div><!-- /.product-slider -->\n';
+                html +='</div><!-- /.tab-pane -->\n';
 
 
-                //$.getScript( "View/js/scripts.js")
+                WrapperProducts_TBS.append(html);
+
                 //init carousel
-                var owl = $('#'+nameGroup);
-                var owl2=owl.find(".home-owl-carousel");
-
+                var owl = $(href);
+                var owl2 = owl.find(".home-owl-carousel");
+                $(".ajaxLoad").remove();
                 owl2.owlCarousel({
-                    items : 4,
-                    itemsTablet:[768,2],
-                    navigation : true,
-                    pagination : false,
+                    items: 4,
+                    itemsTablet: [768, 2],
+                    navigation: true,
+                    pagination: false,
                     transitionStyle: "fade",
                     navigationText: ["", ""]
                 });
-//                
-//             $('.rating').rateit({max: 5, step: 1, value : 4, resetable : false , readonly : true});
+
+                
+             $('.rating').rateit({max: 5, step: 1, value : 4, resetable : false , readonly : true});
+
+            }
+            ;
+
+            function Fail() {
+                alert("Error en handmade.js AJAX GRUPOS TABS SLIDER.\nSe a encontrado un ---echo-- en el procceso de ajaxGroupTabsSlider.php")
             }
         }
-        ;
     });
-});
 
+});
+/*===================================================================================*/
+/*	NOMBRE CATEGORIA TABS SLIDER
+ /*===================================================================================*/
+$(document).ready(function () {
+//    $(".scroll_tabs .nav_tab_line li a").on("click", function (e) {
+//        alert(this.text);
+//        var element=this.closest( "li" );
+//        element.removeClass( "active" ).addClass( "hide" );
+//
+//        e.preventDefault();
+//    });
+});
 /*===================================================================================*/
 /*  SEARCH
  /*===================================================================================*/

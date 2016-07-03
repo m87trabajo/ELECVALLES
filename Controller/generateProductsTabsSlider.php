@@ -28,7 +28,7 @@ require_once 'View/html/productsTabsSlider.php';
   AJUSTAR SEGUN PREFERENCIA
   ======================================== */
 
-$CantTabsSlider = 2; //Cantidad de tab slider       ///0///1///1///1///18///36///1
+$CantTabsSlider = 20; //Cantidad de tab slider       ///0///1///1///1///18///36///1
 $CantTabs = 4; //Cantidad de tabs en tabs slider   ///0///0///1///18///1///1///36
 
 /* ======================================= 
@@ -62,7 +62,7 @@ $Cnt = 0;   //Cuenta tabs slider puestos (aumenta)
   MAIN
   ============================================================================================================= */
 
-A(); //HTML productsTabsSlider.php
+A_TBS(); //HTML productsTabsSlider.php
 
 while ($VarCantTabsSlider > 0 && $CantTabs > 0 && ($Cnt * $CantTabs) <= ($CntGroups - 1)) {//Si se pone variable resto pone todos los grupos    
     if ($Resto > $CantTabs) {                       ///18>4///14>4///10>8///6>4
@@ -71,34 +71,34 @@ while ($VarCantTabsSlider > 0 && $CantTabs > 0 && ($Cnt * $CantTabs) <= ($CntGro
         $Actual = $Resto + $Inicio;                 ///2+16=18
     }
 
-    B(); //ABRE <section> HTML productsTabsSlider.php
+    B_TBS($aGroups[$Cnt* $CantTabs]['grupo']); //ABRE <section> HTML productsTabsSlider.php
 
     for ($i = $Inicio; $i < $Actual; $i++) {        ///0-->4///4-->8///8-->12///12-->16///16-->18
         if ($i == $Inicio) {
-            $FirstLoop = 'class="active"';
+            $FirstLoop = 'class="hide"';
         } else {
             $FirstLoop = '';
         }
         $NoSpaces = str_replace(' ', '_', $aGroups[$i]['grupo']);
-        C($FirstLoop, $NoSpaces, $aGroups[$i]['grupo']); //ABRE ul.nav-tabs HTML productsTabsSlider.php
+        C_TBS($FirstLoop, $NoSpaces, $aGroups[$i]['grupo']); //ABRE ul.nav-tabs HTML productsTabsSlider.php
     }
-    D();
+    D_TBS();
 
     $NoSpaces = str_replace(' ', '_', $aProductsByGroups[$Cnt][0]['grupo']);
 
     //-----LEVEL 2--INSIDE----//
-    E($NoSpaces); //ABRE div.tab-content HTML productsTabsSlider.php   
+    E_TBS($NoSpaces); //ABRE div.tab-content HTML productsTabsSlider.php   
     ProductTabsSliderLvl_2($aProductsByGroups[$Cnt]); //ABRE Y CIERRA div.item-carousel
-    E_2(); //cierra div.tab-content
+    E_2_TBS(); //cierra div.tab-content
 
     $VarCantTabsSlider--;
     $Cnt++;
     $Resto = $Resto - $CantTabs;                    ///18-4=14///14-4=10///10-4=6///6-4=2///
     $Inicio = $Inicio + $CantTabs;                  ///0+4=4///4+4=8///8+4=12///12+4=16
 
-    F(); //CIERRA <section> HTML productsTabsSlider.php
+    F_TBS(); //CIERRA <section> HTML productsTabsSlider.php
 }
-G(); //HTML productsTabsSlider.php
+G_TBS(); //HTML productsTabsSlider.php
 
 /* ============================================================================================================ 
   FUNCIONES
@@ -108,12 +108,15 @@ function ProductTabsSliderLvl_2($aProductsByGroup) {
 
     $string_vNO = "vNO=N&";
     $data_valor_oferta = "N";
+    $sHotNewSale='new';//Modificar tmb en handmade.js 
+    
     foreach ($aProductsByGroup as $producto) {
 
         if ($producto["valor_oferta"] == 1) {
             $string_vNO = "vNO=O&";
             $data_valor_oferta = "O";
+            $sHotNewSale='hot';
         }
-        E_1($string_vNO, $data_valor_oferta, $producto['codigo_producto'], $producto['nombre_producto'], $producto['pvp'], $producto['pvp_incrementado'], $producto['imagen'], $producto['valor_oferta']);
+        E_1_TBS($string_vNO, $data_valor_oferta, $producto['codigo_producto'], $producto['nombre_producto'], $producto['pvp'], $producto['pvp_incrementado'], $producto['imagen'], $sHotNewSale);
     }
 }

@@ -5,7 +5,7 @@
   AUTOR:ELCACHO GRNADOS,MARC
   FEHCA:30-06-2016
   VERSION:V.0.3
- 
+  TITULO:
   FUNCIONAMIENTO:
   SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC.Y sabemos cuantos grupos ahy.
   Segun variables preferencia $CantTabsSlider y $CantTabs. Llama a DB.

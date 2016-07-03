@@ -1,14 +1,14 @@
-<?php
+<?php 
 
-function A() { ;?>
-    <div id = "top-banner-and-menu" class = "body-content " >
+function A_TBS() { ?>
+    <div id = "Main" class = "body-content " >
         <div class = "container">
             <div class = "row">
-<?php } ;?>
+<?php } ?>
 
 <?php
 
-function B() { ;?>
+function B_TBS($sGroupName) { ;?>
                 <section>
                     <div class = "col-lg-12 homebanner-holder">
                         <!--============================================= = SCROLL TABS ============================================= = -->
@@ -17,16 +17,16 @@ function B() { ;?>
                                 <div class = "row">
                                     <div class = "col-lg-12">
                                         <div class = "row">
-                                            <div class = "col-xs-12 col-sm-2 col-md-2 ">
-                                                <h3 class = "new_product_title pull-left">PRODUCTOS</h3>
+                                            <div class = "col-xs-12 col-sm-4 col-md-4 ">
+                                                <h3 class = "new_product_title pull-left"><?php echo $sGroupName ?></h3>
                                             </div>
-                                            <div class = "col-xs-12 col-sm-10 col-md-10">
+                                            <div class = "col-xs-12 col-sm-8 col-md-8">
                                                 <ul class = "new-products nav nav-tabs nav_tab_line">   
 <?php } ;?>
 
  <?php
 
-function C($first_loop, $no_spaces, $nameGrupo) { ;?>
+function C_TBS($first_loop, $no_spaces, $nameGrupo) { ;?>
 
     <li <?php echo $first_loop ;?>>
         <a data-transition-type="backSlide" href="#<?php echo $no_spaces ;?>" data-toggle="tab"><?php echo $nameGrupo ;?></a>
@@ -35,7 +35,7 @@ function C($first_loop, $no_spaces, $nameGrupo) { ;?>
 
 <?php
 
-function D() { ;?>
+function D_TBS() { ;?>
                                                 </ul><!-- /.nav-tabs -->
                                             </div>
                                         </div>
@@ -46,8 +46,8 @@ function D() { ;?>
 
 <?php
 
-function E($no_spaces) { ;?>     
-                            <div class="tab-content wrapper_products outer_top_xs">  
+function E_TBS($no_spaces) { ;?>     
+                            <div class="tab-content WrapperProducts_TBS outer_top_xs">  
                                 <div id="<?php echo $no_spaces ;?>" class="tab-pane active">  
                                     <div class="product-slider">
                                         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
@@ -56,7 +56,7 @@ function E($no_spaces) { ;?>
 
 <?php
 
-function E_1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto, $pvp, $pvp_incrementado, $imagen, $valor_oferta) { ;?>
+function E_1_TBS($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto, $pvp, $pvp_incrementado, $imagen, $sHotNewSale) { ;?>
                                             <div class="item item-carousel">
                                                 <div class="products">
 
@@ -66,7 +66,7 @@ function E_1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto
                                                                 <a href="detail.php?<?php echo $string_vNO . 'cod=' . $codigo_producto ;?>"><img  src="img_productos/<?php echo $imagen . '.jpg' ;?>" alt="<?php echo $nombre_producto ;?>"></a>
                                                             </div><!-- /.image -->
 
-                                                            <div class="tag new"><span>new</span></div>
+                                                            <div class="tag <?php echo $sHotNewSale ?>"><span><?php echo $sHotNewSale ?></span></div>
                                                         </div><!-- /.product_image -->
 
 
@@ -74,7 +74,7 @@ function E_1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto
                                                             <h3 class="name">
                                                                 <a href="detail.php?<?php echo $string_vNO . 'cod=' . $codigo_producto ;?>"><?php echo $nombre_producto ;?></a>
                                                             </h3>
-<!--                                                            <div class="rating rateit-small"></div>-->
+                                                            <div class="rating rateit-small"></div>
                                                             <div class="id_product">
                                                                 <span class="value"><?php echo $codigo_producto ;?></span>
                                                             </div>  
@@ -119,7 +119,7 @@ function E_1($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_producto
 
 <?php
 
-function E_2() { ;?>
+function E_2_TBS() { ;?>
                                         </div><!-- /.home-owl-carousel --> 
                                     </div><!-- /.product-slider -->
                                 </div><!-- /.tab-pane -->
@@ -128,7 +128,7 @@ function E_2() { ;?>
 
 <?php
 
-function F() { ;?>                            
+function F_TBS() { ;?>                            
                         </div><!-- /.scroll_tabs -->
                     </div><!-- /.homebanner-holder -->
                 </section>
@@ -136,8 +136,8 @@ function F() { ;?>
 
 <?php
 
-function G() { ;?>
+function G_TBS() { ;?>
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </div><!-- /#top-banner-and-menu -->
+    </div><!-- /#Main -->
 <?php } ;?>

@@ -365,7 +365,7 @@
     }
 }
 
-/* Small devices (SM) 768-->992*/
+/* Small devices (SM) 768-->991*/
 @media (min-width:768px){
     /*========================*/
     /*  HEADER--->MAIN_HEADER
@@ -443,9 +443,10 @@
     .padding_dropdown_RS_XS{
         padding: 20px 30px;
     }
-    /*
-    .Container_LG{
-        width:570px;
+    
+    /*evita que el container del submenu sea de 1170px sale de pantalla*/
+    .Container_SM{
+        width:370px;
     }
     /*ERROR*/
     /*	#menu .ancho_max_RS_MD {
@@ -455,8 +456,8 @@
             }*/
 }
 
-/* Medium devices to Large (MD) 993-->1999*/
-@media (min-width:993px) {
+/* Medium devices to Large (MD) 991-->1200*/
+@media (min-width:992px) {
     /*========================*/
     /*  HEADER--->MAIN_HEADER
     /*========================*/
@@ -464,14 +465,14 @@
     .basket_item_count{
         right:31%;
     }
-    .Container_LG{
+    .Container_SM{
         width:996px;
     }
 
 
 }
 
-/*  Large devices (LG) 2000-->X*/
+/*  Large devices (LG) 1200-->X*/
 @media (min-width:1200px){
     /*========================*/
     /*  HEADER--->MAIN_HEADER

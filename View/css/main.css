@@ -57,6 +57,16 @@ a:hover,a:active,a:focus {
     text-decoration: none;
 }
 
+/*establece z-index para no tener problemas en Chrome,IE,Firefox*/
+header,#main{
+    position:relative;
+}
+header{
+    z-index: 1000;
+}
+#main{
+    z-index: 1;
+}
 /*===================================================================================*/
 /*GLOBAL--->MARGENES
 /*===================================================================================*/
