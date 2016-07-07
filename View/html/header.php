@@ -335,4 +335,7 @@
 
 <?php function A_1() { ?>
  </header>
+<div id = "Main" class = "body-content " >
+    <div class = "container">
+        <div class = "row">
 <?php }?>

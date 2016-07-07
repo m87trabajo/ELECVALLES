@@ -1,14 +1,6 @@
-<?php 
-
-function A_TBS() { ?>
-    <div id = "Main" class = "body-content " >
-        <div class = "container">
-            <div class = "row">
-<?php } ?>
-
 <?php
 
-function B_TBS($sGroupName) { ;?>
+function A_TBS($sGroupName) { ;?>
                 <section>
                     <div class = "col-lg-12 homebanner-holder">
                         <!--============================================= = SCROLL TABS ============================================= = -->
@@ -26,7 +18,7 @@ function B_TBS($sGroupName) { ;?>
 
  <?php
 
-function C_TBS($first_loop, $no_spaces, $nameGrupo) { ;?>
+function B_TBS($first_loop, $no_spaces, $nameGrupo) { ;?>
 
     <li <?php echo $first_loop ;?>>
         <a data-transition-type="backSlide" href="#<?php echo $no_spaces ;?>" data-toggle="tab"><?php echo $nameGrupo ;?></a>
@@ -35,7 +27,7 @@ function C_TBS($first_loop, $no_spaces, $nameGrupo) { ;?>
 
 <?php
 
-function D_TBS() { ;?>
+function C_TBS() { ;?>
                                                 </ul><!-- /.nav-tabs -->
                                             </div>
                                         </div>
@@ -46,11 +38,16 @@ function D_TBS() { ;?>
 
 <?php
 
-function E_TBS($no_spaces) { ;?>     
+function D_TBS() { ;?>     
                             <div class="tab-content WrapperProducts_TBS outer_top_xs">  
+
+<?php } ;?>
+                                
+<?php                                         
+function E_TBS($no_spaces) { ;?>     
                                 <div id="<?php echo $no_spaces ;?>" class="tab-pane active">  
                                     <div class="product-slider">
-                                        <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
+                                        <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
 
 <?php } ;?>
 
@@ -123,21 +120,20 @@ function E_2_TBS() { ;?>
                                         </div><!-- /.home-owl-carousel --> 
                                     </div><!-- /.product-slider -->
                                 </div><!-- /.tab-pane -->
-                            </div><!-- /.tab-content -->
 <?php } ;?>
 
 <?php
 
-function F_TBS() { ;?>                            
+function F_TBS() { ;?>
+
+                            </div><!-- /.tab-content -->
+<?php } ;?>
+                            
+<?php
+
+function G_TBS() { ;?>                            
                         </div><!-- /.scroll_tabs -->
                     </div><!-- /.homebanner-holder -->
                 </section>
 <?php } ;?>
 
-<?php
-
-function G_TBS() { ;?>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /#Main -->
-<?php } ;?>

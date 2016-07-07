@@ -16,27 +16,27 @@ Class Shop {
         //echo "Shop-->Destruido<br/>";
     }
 
-    function getCompanyName() {
+    public function getCompanyName() {
         return $this->CompanyName;
     }
 
-    function setCompanyName($CompanyName) {
+    public function setCompanyName($CompanyName) {
         $this->CompanyName = $CompanyName;
     }
 
-    function getArrAux() {
+    public function getArrAux() {
         return $this->ArrAux;
     }
 
-    function setArrAux($ArrAux) {
+    public function setArrAux($ArrAux) {
         $this->ArrAux = $ArrAux;
     }
 
-    function getVarAux() {
+    public function getVarAux() {
         return $this->VarAux;
     }
 
-    function setVarAux($VarAux) {
+    public function setVarAux($VarAux) {
         $this->VarAux = $VarAux;
     }
 
@@ -55,17 +55,20 @@ Class Shop {
     }
 
     //--------------------TABS SLIDER--------------------------//
-    public function TabsSliderProductsByGroup($CantTabsSlider, $CantTabs, $CntGroups) {
+    //------TABLA:f_random_products------/
+    public function TabsSliderProductsByGroup($start, $groupsSelected, $IN_NumTabs) {
         $daoshop = new daoShop();
-        $FetchProductsByGroup = $daoshop->FetchProductsByGroup($CantTabsSlider, $CantTabs, $CntGroups);
+        $FetchProductsByGroup = $daoshop->FetchProductsByGroup($start, $groupsSelected, $IN_NumTabs);
         $this->setArrAux($FetchProductsByGroup);
     }
 
     //--------------------TABS SLIDER--------------------------//
+    //------TABLA:f_random_products------/
     public function TabsSliderAjaxRequestGroupProducts($group) {
         $daoshop = new daoShop();
         $FetchGroupProducts = $daoshop->FetchGroupProducts($group);
         $this->setArrAux($FetchGroupProducts);
+        // var_dump($FetchGroupProducts);
     }
 
 }
