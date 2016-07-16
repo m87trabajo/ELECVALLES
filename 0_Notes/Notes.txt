@@ -1,0 +1,14 @@
+-Se utiliza Camel
+-Se usara guion bajo en los nombres para diferenciar funciones del mismo nombre A_TBS() A_HE()
+-En PHP no se utiliza "->'
+-En procedures de MYSQL poner NOT NULL,INDEX idx_grupo (grupo),PRIMARY KEY (grupo))ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_spanish_ci;
+-Comentarios Capitalize
+-Precio con 3 decimales
+
+-En server
+To make this 'permanent', in my.cf:
+[client]
+default-character-set=utf8
+[mysqld]
+character-set-server = utf8
+

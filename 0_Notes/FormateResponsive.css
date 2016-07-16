@@ -1,0 +1,32 @@
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*  RESPONSIVE
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/* Super Extra small(SXS) devices 0-->275*/
+@media (max-width:275px){
+
+}
+
+/* Extra small(XS) devices 276-->767*/
+@media (min-width:276px) {
+
+}
+
+/* Small devices (SM) 768-->991*/
+@media (min-width:768px){
+
+}
+
+/* Medium devices to Large (MD) 991-->1200*/
+@media (min-width:992px) {
+
+
+}
+
+/*  Large devices (LG) 1200-->X*/
+@media (min-width:1200px){
+    /*========================*/
+    /*  HEADER--->MAIN_HEADER
+    /*========================*/
+
+}
+

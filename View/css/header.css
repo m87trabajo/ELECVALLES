@@ -13,7 +13,7 @@
 #top_header a:hover .top_links, #top_header a:hover .icon_top_links,
 #top_header a:active .top_links, #top_header a:active .icon_top_links,
 #top_header a:focus .top_links, #top_header a:focus .icon_top_links{
-    color:#3A3A3A;/*GRIS*/
+    color:#333;/*GRIS*/
     text-shadow: none;
 }
 
@@ -35,14 +35,14 @@
 /*fuente*/
 #main_header a{
     font:bold 18px/18px Lato_Bold;
-    color:#096eb7;
+    color:#096eb7;/*AZUL PRINCIPAL*/
     text-transform: uppercase;
 }
 
 /*fuente link:hover*/
 #mini_menu li > a:hover,
 #mini_menu li > a:active{
-    color:#3A3A3A;/*GRIS*/
+    color:#333;/*GRIS*/
 }
 
 /*margen superior inferior parte central menu  normalmente 18px a partir de SMALL 30px*/

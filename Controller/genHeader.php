@@ -1,15 +1,17 @@
 <?php
-
 /* ##################################################################################################
   ###################################################################################################
-  AUTOR:ELCACHO GRNADOS,MARC
-  FEHCA:07-07-2016
-  VERSION:V.0.1
-  TITULO:genHeader.php
-  FUNCIONAMIENTO:
-  ¡ADVERTENCIAS!:
- * PEQUEÑO BUG QUE HACE PAGE JUMP CUANDO AHY 2 TABS SLIDER
-
+  -AUTOR:ELCACHO GRNADOS,MARC    -FEHCA:00-00-2016    -VERSION:V.0.0    -LENGUAJE:JAVASCRIPT
+  -TITULO:Controller/genHeader.php
+  -RETRUN: ---
+  -VENTAJAS:No crea objeto
+  -RESUMEN:Crea el menu con los nombres en en array y grupos de DB en filas segun $IN_NumeroFilas
+  -DATABASE:---
+  -FUNCIONAMIENTO:---
+  -ERRORES:
+  Pequeño bug que hace page jump cuando clicamos en un nav tab del slider.
+  ---!IMPORTANTE!---:
+  session esta iniciada desde index.php
   ##################################################################################################
   ################################################################################################## */
 
@@ -17,13 +19,15 @@
   INCLUDES
   ======================================== */
 require_once 'funcAutoLoad.php';
-require_once 'View/html/header.php';
 require_once 'Config/Customize.php';
+require_once $_SESSION['shop']['publicPath'] .'/View/html/header.php';
 /* ======================================= 
   AJUSTAR SEGUN PREFERENCIAº
   ======================================== */
-/* $IN_NumeroFilas = 7; //Numero de filas aparezen en menu */
-/* $IN_aNameMenu=['PRODUCTOS','OFERTAS','SERVICIOS','NOTICIAS']; */
+/*******************HELP*****************************************
+ $IN_NumeroFilas = 7; //Numero de filas aparezen en menu 
+ $IN_aNameMenu=['PRODUCTOS','OFERTAS','SERVICIOS','NOTICIAS']; 
+*****************************************************************/
 
 /* ======================================= 
   OBJETO
@@ -34,28 +38,15 @@ require_once 'Config/Customize.php';
   VARIABLES
   ======================================== */
 /* VARIABLES FUNCION */
-$oShop=  unserialize($_SESSION['shop']['oShop']);
 $aGrupoCantidad = $_SESSION['shop']['a_grupo_cantidad']; //SELECT grupo,cantidad FROM a_grupo_cantidad.
 $aOfertaGrupoCantidad = $_SESSION['shop']['a_grupo_oferta_cantidad']; //SELECT grupo,cantidad FROM a_grupo_oferta_cantidad
+
 
 /* ============================================================================================================ 
   MAIN
   ============================================================================================================= */
 
-//SI COMPROBAMOS QUE NO EXISTA INFORMACION DEL MENU PARA NO HACER UNA PETICION A BASE DATOS
-if (empty($aGrupoCantidad)) {
-    $oShop->MenuGroupsQuantitys('a_grupo_cantidad'); //SELECT grupo,cantidad FROM a_grupo_cantidad
-    $aGrupoCantidad = $oShop->getArrAux();
-    //var_dump( $aGrupoCantidad);///----DEBUG---
-}
-if (empty($aOfertaGrupoCantidad)) {
-    $oShop->MenuGroupsQuantitys('a_grupo_oferta_cantidad'); //SELECT grupo,cantidad FROM a_grupo_oferta_cantidad
-    $aOfertaGrupoCantidad = $oShop->getArrAux();
-    //var_dump( $aOfertaGrupoCantidad);///----DEBUG---   
-}
 
-
-/* MAIN */
 A();
 TopHeader();
 MainHeader();
@@ -74,7 +65,7 @@ A_1();
   ============================================================================================================= */
 
 function MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu, $Href, $sCSS_1, $sCSS_2, $sCSS_2_3) {
-    
+
     $resto = count($aGrupoCantidad); //Cantidad de elementos por poner
     $inicio = 0; //Empieza a colocar elementos desde elemento
     $actual = 0; //Valor hasta donde a colocado elementos
@@ -87,8 +78,8 @@ function MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu, $Href, $sCSS
         FH_4_2($sCSS_2_3);
 
         $actual = $inicio + $IN_NumeroFilas;
-        
-        if($resto < $IN_NumeroFilas){
+
+        if ($resto < $IN_NumeroFilas) {
             $actual = $resto + $inicio;
         }
 

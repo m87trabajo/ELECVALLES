@@ -1,7 +1,32 @@
 <?php
+/* ##################################################################################################
+  ###################################################################################################
+  -AUTOR:ELCACHO GRNADOS,MARC    -FEHCA:00-00-2016    -VERSION:V.0.0    -LENGUAJE:HTML 
+  -TITULO:Html/View/tabSlider.php 
+  -RETRUN: --- 
+  -VENTAJAS:---
+  -RESUMEN:Genera HTML tabSlider
+  -DATABASE:---
+  -FUNCIONAMIENTO:---
+  -ERRORES:---
+  ---!IMPORTANTE!---:
+  ##################################################################################################
+  ################################################################################################## */
 
+/* ============================================================================================================ 
+  FUNCIONES
+  ============================================================================================================= */
+;?>
+<?php function A_0_TBS() { ?>
+ </header>
+<div id = "Main" class = "body-content">
+    <div class = "container">
+        <div class = "row">
+<?php }?>
+            
+<?php
 function A_TBS($sGroupName) { ;?>
-                <section>
+                <section class="wrpTabSlider">
                     <div class = "col-lg-12 homebanner-holder">
                         <!--============================================= = SCROLL TABS ============================================= = -->
                         <div class = "scroll_tabs product-tabs-slider wow fadeInUp">
@@ -71,14 +96,14 @@ function E_1_TBS($string_vNO, $data_valor_oferta, $codigo_producto, $nombre_prod
                                                             <h3 class="name">
                                                                 <a href="detail.php?<?php echo $string_vNO . 'cod=' . $codigo_producto ;?>"><?php echo $nombre_producto ;?></a>
                                                             </h3>
-                                                            <div class="rating rateit-small"></div>
-                                                            <div class="id_product">
+<!--                                                            <div class="rating rateit-small"></div>-->
+                                                            <div class="id_product hide">
                                                                 <span class="value"><?php echo $codigo_producto ;?></span>
                                                             </div>  
 
                                                             <div class="product_price">
-                                                                <span class="price"><?php echo $pvp ;?></span>
-                                                                <span class="price_before_discount"><?php echo $pvp_incrementado ;?></span>
+                                                                <span class="price"><?php echo $pvp ;?>&nbsp;€</span>
+                                                                <span class="price_before_discount"><?php echo $pvp_incrementado ;?>&nbsp;€</span>
                                                             </div><!-- /.product_price -->
 
                                                         </div><!-- /.product_info -->
@@ -137,3 +162,8 @@ function G_TBS() { ;?>
                 </section>
 <?php } ;?>
 
+<?php function A_1_TBS() { ?>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /#Main -->
+<?php }?>

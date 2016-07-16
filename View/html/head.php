@@ -1,4 +1,21 @@
 <?php
+/* ##################################################################################################
+  ###################################################################################################
+  -AUTOR:ELCACHO GRNADOS,MARC    -FEHCA:00-00-2016    -VERSION:V.0.0    -LENGUAJE:HTML
+  -TITULO:Html/View/head.php
+  -RETRUN: ---
+  -VENTAJAS:---
+  -RESUMEN:---
+  -DATABASE:---
+  -FUNCIONAMIENTO:---
+  -ERRORES:---
+  ---!IMPORTANTE!---:
+  ##################################################################################################
+  ################################################################################################## */
+
+/* ============================================================================================================ 
+  FUNCIONES
+  ============================================================================================================= */
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,7 +41,7 @@
 
         <!--FONT AWESOME-->
         <link rel="stylesheet" href="Libs/fontawesome/css/font-awesome.css">
-        
+
         <!-- SLIDER TABS-->        
         <!--CAROUSEL-->
         <link rel="stylesheet" href="Libs/owlcarousel/owl.carousel.css">
@@ -39,21 +56,24 @@
         <link rel="shortcut icon" href="View/img/logo.ico">
 
         <!--CSS HANDMADE-->
-        
-            <!--CSS MAIN-->
-            <link rel="stylesheet" href="View/css/main.css">
 
-            <!--CSS HEADER-->
-            <link rel="stylesheet" href="View/css/header.css">
+        <!--CSS MAIN-->
+        <link rel="stylesheet" href="View/css/main.css">
 
-            <!--CSS INDEX-->
-            <link rel="stylesheet" href="View/css/index.css">
+        <!--CSS HEADER-->
+        <link rel="stylesheet" href="View/css/header.css">
 
-            <!--CSS ANIMACIONES-->
-            <link rel="stylesheet" href="View/css/animaciones.css">
+        <!--CSS INDEX-->
+        <link rel="stylesheet" href="View/css/index.css">
 
-            <!--CSS SCROLL_TABS-->
-            <link rel="stylesheet" href="View/css/scrollTabs.css">
+        <!--CSS ANIMACIONES-->
+        <link rel="stylesheet" href="View/css/animaciones.css">
+
+        <!--CSS SCROLL_TABS-->
+        <link rel="stylesheet" href="View/css/scrollTabs.css">
+
+        <!--CSS FOOTER-->
+        <link rel="stylesheet" href="View/css/footer.css">
 
 
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->

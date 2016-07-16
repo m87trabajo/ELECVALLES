@@ -1,0 +1,147 @@
+/* ============================================================================================================ 
+  FOOTER--->footer_top
+  ============================================================================================================= */
+/*contenedor footer con borde*/
+footer {
+    border-top: 1px solid #e2e2e2;/*BLANCO GRISACEO*/
+}
+footer .footer_top .col_12_RS_SXS,footer .footer_bottom .menuFooter .col_12_RS_SXS{
+    width: none;
+}
+/*color fondo footer_top */
+footer .footer_top {
+    background: #f7f7f7 none repeat scroll 0 0;/*GRIS BLANCO*/
+    padding: 16px 0px;
+}
+/*separacion eje Y enlaces footer_top*/
+footer .footer_top .module-body li,footer .footer_bottom .menuFooter li {
+    margin-bottom: 2px;
+}
+/*separacion ultimo elemento eje Y enlaces footer_top*/
+footer .footer_top .module-body li:last-child {
+    margin-bottom: 0px;
+}
+/*enlaces footer_top*/
+footer .footer_top .module-body li a{
+    color:#333333;/*GRIS*/
+}
+/*:hover enlaces footer_top*/
+footer .footer_top .module-body li a:hover{
+    color:#096eb7; /*AZUL PRINCIPAL*/
+}
+/*separador*/
+.separador_small{
+    background-color: black;
+    display: block;
+    height: 3px;
+    opacity: 0.1;
+    width: 30px;
+    margin-bottom: 10px;
+}
+/*heading titulo columnas footer */
+footer .footer_top .module-heading {
+    color: #898989;/*GRIS CLARO*/
+    font-size: 16px;
+    text-transform: uppercase;
+}
+/*mobile first clear: both; hasta LG clear: none;*/
+footer .footer_top .clearfix_RS_LG{
+    clear: both;
+}
+/* ============================================================================================================ 
+  FOOTER--->footer_bottom
+  ============================================================================================================= */
+/* ======================================= 
+  FOOTER--->PARTE IZQUIERDA menuFooter,attentionConsumer,copyright
+  ======================================== */
+/*color fondo footer_bottom */
+footer .footer_bottom {
+    background: #333 none repeat scroll 0 0;
+    padding:  4px 0;
+}
+/*color rojo para IVA*/
+footer .footer_bottom span.attention{
+    color: #f44c4c ; /*ROJO*/
+}
+/*blanco para elementos <a> y <span>*/
+footer .footer_bottom div.menuFooter,div.attentionConsumer,div.copyright span,a {
+    color:white;
+}
+/*borde debajo menu footer_bottom*/
+footer .footer_bottom div.menuFooter ul{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 2px;
+    overflow: hidden;
+    padding-bottom: 4px;      
+}
+/*enlaces menu footer_bottom:hover*/
+footer .footer_bottom a:hover{
+    color:#898989;/*GRIS CLARO */
+}
+/*Tamaño linia attentionConsumer*/
+footer .footer_bottom .attentionConsumer{
+    font-size: 12px;
+}
+
+/* ======================================= 
+  FOOTER--->PARTE DERECHA IMAGENES TARJETAS
+  ======================================== */
+/*imagenes en mobile first centrado*/
+footer .footer_bottom .pull_right_RS_SM{
+    text-align: center;
+}
+/*altura de la parte izquierda sumatorio height elementos de la derecha*/
+footer .footer_bottom div.payment-methods{
+    /*padding-bottom: 4px;+margin-bottom: 2px;+14 font =48*/
+    line-height: 48px;
+}
+/*imagenes en bloque*/
+footer .footer_bottom div.payment-methods ul li {
+    display: inline-block;
+    margin-right: 12px;
+}
+/*altura imagenes tarjetas*/
+footer .footer_bottom div.payment-methods ul li img{
+    height: 24px;
+}
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/*  RESPONSIVE
+/*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
+/* Super Extra small(SXS) devices 0-->275*/
+@media (max-width:275px){
+footer .footer_top .col_12_RS_SXS,footer .footer_bottom .menuFooter .col_12_RS_SXS{
+    width: 100%;
+}
+}
+
+/* Extra small(XS) devices 276-->767*/
+@media (min-width:276px) {
+
+}
+
+/* Small devices (SM) 768-->991*/
+@media (min-width:768px){
+    /*imagenes a partir de SM float:right*/
+    footer .footer_bottom .pull_right_RS_SM{
+        float:right;
+    }
+    /*separacion eje Y enlaces .footer_bottom*/
+footer .footer_bottom .menuFooter li {
+    margin-bottom: 0px;
+}
+}
+
+/* Medium devices to Large (MD) 991-->1200*/
+@media (min-width:992px) {
+
+
+}
+
+/*  Large devices (LG) 1200-->X*/
+@media (min-width:1200px){
+    /*mobile first clear: both; hasta LG clear: none;*/
+    footer .footer_top .clearfix_RS_LG{
+        clear: none;
+    }
+
+}

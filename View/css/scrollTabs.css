@@ -1,7 +1,7 @@
 /*===================================================================================*/
 /*  SECTION--->SCROLL TABS
 /*===================================================================================*/
-section{
+section .wrpTabSlider{
   margin: 10px 0px;
 }
 /*Contenedor img ajaxLoad centrada*/
@@ -28,16 +28,16 @@ div.ajaxLoad{
 }
 /*color :hover links pestañas superiores tab */
 .scroll_tabs .more_info_tab li a:hover, .scroll_tabs .nav_tab_line li a:focus,.scroll_tabs .nav_tab_line li.active a {
-  color:#abd07e;/*verde unicase*/
+  color:#096eb7;/*AZUL PRINCIPAL*/
 }
 /*color :hover nombre producto*/
 .product .product_info .name a:hover, .product .product_info .name a:focus{
-  color:#abd07e;/*verde unicase*/
+  color:#096eb7;/*AZUL PRINCIPAL*/
 }
 
 /*color :hover iconos desplazamiento carrousel*/
 .custom-carousel .owl-controls .owl-prev:hover, .custom-carousel .owl-controls .owl-next:hover, .custom-carousel .owl-controls .owl-prev:focus, .custom-carousel .owl-controls .owl-next:focus{
- background: #84b943 none repeat scroll 0 0;
+ background: #096eb7 none repeat scroll 0 0;/*AZUL PRINCIPAL*/
 }
 
 /* borde y padding pestañas superiores tab */

@@ -5,9 +5,12 @@
 #428bca ; rgba(66, 139, 202,1)  ; AZUL TEMA 2
 #1cea61 ; rgba(28, 234, 97,1)   ; VERDE
 #f44c4c ; rgba(244, 76, 76,1)   ; ROJO
-#3A3A3A ; rgba(58, 58, 58,1)    ; GRIS
-#e2e2e2 ; rgba(226, 226, 226) ; BLANCO GRISACEO
+#333333 ; rgb(51, 51, 51)       ; GRIS 
+#898989 ; rgb(137, 137, 137)    ; GRIS CLARO 
+#f7f7f7 ; rgb(247, 247, 247)    ; GRIS BLANCO (footer_top) 
+#e2e2e2 ; rgba(226, 226, 226)   ; BLANCO GRISACEO
 #F1C40F ; rgba(241, 196, 15, 1) ; AMARILLO
+
 */
 /*===================================================================================*/
 /*  RESPONSIVE
@@ -50,7 +53,7 @@ body{
     font:normal 14px/14px My_Open_Sans;
 }
 img[src="images/blank.gif"] {
-  background: url("images/ajax.gif") no-repeat scroll center center #ffffff;
+    background: url("images/ajax.gif") no-repeat scroll center center #ffffff;
 }
 /*links sin decoracion*/
 a:hover,a:active,a:focus {
@@ -79,20 +82,27 @@ header{
 .m-t-20{
     margin-top: 20px;
 }
-.outer-bottom-xs {
-    margin-bottom: 40px;
-}
+
 .first_margin_B_10{
     margin-bottom: 10px;
 }
 .margin_T_B_10{
     margin:10px 0px;
 }
+.outer-bottom-xs {
+    margin-bottom: 20px;
+}
 .outer-top-xs {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .tcenter{
     text-align: center;
+}
+.no-margin{
+    margin:0 ;
+}
+.no-padding{
+    padding:0;
 }
 /*===================================================================================*/
 /*PRODUCT--->CONTENEDOR FOTO PRODUCTO, NOMBRE, FOTO, PRECIO, BOTONES
@@ -174,7 +184,7 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
 }
 /*botones whislist, compare*/
 .btn.btn-primary:hover, .btn.btn-primary:active{
-   background: #abd07e none repeat scroll 0 0; /*VERDE UNICASE*/
+    background: #096eb7 none repeat scroll 0 0; /*AZUL PRINCIPAL*/
 }
 
 /*transicion elementos dentro de producto (botones)*/
