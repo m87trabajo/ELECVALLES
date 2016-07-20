@@ -1,17 +1,21 @@
 /*===================================================================================*/
 /*  COLORES
 /*===================================================================================
-#096eb7 ; rgba(9, 110, 183,1)   ; AZUL PRINCIPAL
-#428bca ; rgba(66, 139, 202,1)  ; AZUL TEMA 2
-#1cea61 ; rgba(28, 234, 97,1)   ; VERDE
-#f44c4c ; rgba(244, 76, 76,1)   ; ROJO
-#333333 ; rgb(51, 51, 51)       ; GRIS 
-#898989 ; rgb(137, 137, 137)    ; GRIS CLARO 
-#f7f7f7 ; rgb(247, 247, 247)    ; GRIS BLANCO (footer_top) 
-#e2e2e2 ; rgba(226, 226, 226)   ; BLANCO GRISACEO
-#F1C40F ; rgba(241, 196, 15, 1) ; AMARILLO
+#096eb7 ; rgba(9, 110, 183, 1)   ; AZUL PRINCIPAL
+#428bca ; rgba(66, 139, 202, 1)  ; AZUL TEMA 2
+#1cea61 ; rgba(28, 234, 97, 1)   ; VERDE
+#a9daa9 ; rgba(171, 208, 126, 1) ; VERDE PASTEL
+#f44c4c ; rgba(244, 76, 76, 1)   ; ROJO
+#333333 ; rgba(51, 51, 51, 1)    ; GRIS OSCURO
+#575757 ; rgba(87, 87, 87, 1)    ; GRIS
+#898989 ; rgba(137, 137, 137, 1) ; GRIS CLARO 
+#a8a8a8 ; rgba(168, 168, 168, 1) ; GRIS MUY CLARO 
+#e2e2e2 ; rgba(226, 226, 226, 1) ; GRIS BLANCO
+#f7f7f7 ; rgba(247, 247, 247, 1) ; BLANCO GRIS (footer_top) 
+#ffffff ; rgba(255, 255, 255, 1) ;BLANCO
+#f1c40f ; rgba(241, 196, 15, 1)  ; AMARILLO (basket_item_count)
+.separador_small{background-color: rgba(0, 0, 0, 0.1);/*NEGRO OPACITY 0.1*/
 
-*/
 /*===================================================================================*/
 /*  RESPONSIVE
 /*===================================================================================*/
@@ -51,23 +55,27 @@
 /*tipo letra por defecto*/
 body{
     font:normal 14px/14px My_Open_Sans;
+    background-color:white;/*BLANCO*/
 }
+
 img[src="images/blank.gif"] {
-    background: url("images/ajax.gif") no-repeat scroll center center #ffffff;
+    background: url("images/ajax.gif") no-repeat scroll center center white;/*BLANCO*/
 }
+
 /*links sin decoracion*/
-a:hover,a:active,a:focus {
+a:hover,a:active,a:focus{
     text-decoration: none;
+    color:#096eb7 !important;/*AZUL PRINCIPAL*/
 }
 
 /*establece z-index para no tener problemas en Chrome,IE,Firefox*/
-header,#main{
+header,.main{
     position:relative;
 }
 header{
     z-index: 1000;
 }
-#main{
+.main{
     z-index: 1;
 }
 /*===================================================================================*/
@@ -83,9 +91,17 @@ header{
     margin-top: 20px;
 }
 
-.first_margin_B_10{
+.m-b-10{
     margin-bottom: 10px;
 }
+
+.p-t-10{
+    padding-top: 10px;     
+}
+.p-b-10{
+    padding-bottom: 10px;    
+}
+
 .margin_T_B_10{
     margin:10px 0px;
 }
@@ -124,7 +140,7 @@ header{
 
 /*texto nombre articulo*/
 .product .product_info .name a {
-    color: #555;
+    color:#333333;/*GRIS OSCURO*/
 }
 
 /*precio artiuclo*/
@@ -138,7 +154,7 @@ header{
 /*precio incrementado*/
 .product .product_info .product_price .price_before_discount {
     text-decoration: line-through;
-    color: #d3d3d3;
+    color: #898989;/*GRIS CLARO*/
     font-weight: 400;
     line-height: 30px;
     font-size: 14px;
@@ -159,8 +175,8 @@ header{
     -ms-transition: all linear 0.2s;
     -o-transition: all linear 0.2s;
     transition: all linear 0.2s;
-    background: #a8a8a8;/*GRIS CLARO*/
-    color: #fff;
+    background: #a8a8a8;/*GRIS MUY CLARO*/
+    color:white;/*BLANCO*/
     border: none;
     font-size: 13px;
     line-height: 22px;
@@ -169,22 +185,30 @@ header{
 .add_cart_button .btn.btn-primary.icon {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    background: #575757 ;/*GRIS OSCURO*/
+    background: #575757 ;/*GRIS*/
 }
 
 
 /*:hover parte izquierda boton añadir al carrito, color letra*/
 li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.btn-group:active .btn.btn-primary.icon {
     color: #abd07e ;/*VERDE UNICASE*/
-    background: #575757 ;/*GRIS OSCURO*/
+    background: #575757 ;/*GRIS*/
 }
 /*despues de apretar boton retorna a color normal*/
 .btn.btn-primary:focus{
-    background: #a8a8a8;/*GRIS CLARO*/
+    background: #a8a8a8;/*GRIS MUY CLARO*/
 }
-/*botones whislist, compare*/
+/*botones añadir a carrito*/
 .btn.btn-primary:hover, .btn.btn-primary:active{
     background: #096eb7 none repeat scroll 0 0; /*AZUL PRINCIPAL*/
+}
+/*botone whislist*/
+.wishlist>.btn.btn-primary:hover, .wishlist>.btn.btn-primary:active{
+    background: #f44c4c none repeat scroll 0 0; /*ROJO*/
+}
+/*botone compare*/
+.compare>.btn.btn-primary:hover, .compare>.btn.btn-primary:active{
+    background: #333333 none repeat scroll 0 0; /*GRIS OSCURO*/
 }
 
 /*transicion elementos dentro de producto (botones)*/
@@ -229,7 +253,7 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    color: #fff;
+    color:white;/*BLANCO*/
     right: 25px;
     text-align: center;
 }
@@ -240,21 +264,21 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
 }
 /*color bolita nuevo*/
 .tag.new {
-    background: #46aad7;
+    background: #096eb7 none repeat scroll 0 0;/*AZUL PRINCIPAL*/
 }
 /*color bolita hot*/
 .tag.hot {
-    background: #ff7878;
+    background: #f44c4c none repeat scroll 0 0;/*ROJO*/
 }
 /*color bolita vendido*/
 .tag.sale {
-    background: #abd07e none repeat scroll 0 0;
+    background: #a9daa9 none repeat scroll 0 0;/*VERDE PASTEL*/
 }
 /*bolita descuento*/
 .hot-deals .hot-deal-wrapper .sale-offer-tag {
-    background: #ff7878 none repeat scroll 0 0;
+    background: purple none repeat scroll 0 0;
     border-radius: 50px;
-    color: #ffffff;
+    color:white;/*BLANCO*/
     font-size: 17px;
     font-weight: 900;
     height: 50px;
@@ -296,11 +320,11 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: #dddddd;
+    background: #e2e2e2;/*GRIS BLANCO*/
 }
 /*posicion flecha dentro boton atras carrousel*/
 .custom-carousel .owl-controls .owl-prev:before {
-    color: #fff;
+    color:white;/*BLANCO*/
     content: "\f104";
     font-family: fontawesome;
     font-size: 16px;
@@ -323,13 +347,13 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: #dddddd;
+    background: #e2e2e2;/*GRIS BLANCO*/
 }
 /*posicion flecha dentro boton siguiente carrousel*/
 .custom-carousel .owl-controls .owl-next:before {
     content: "\f105";
     font-family: fontawesome;
-    color: #fff;
+    color:white;/*BLANCO*/
     font-size: 16px;
     right: 6px;
     position: absolute;
@@ -340,7 +364,7 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
 /*===================================================================================*/
 /*color fondo */
 .breadcrumb {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;/*TRANSPARENTE*/
     padding: 0;
 }
 .breadcrumb ul {
@@ -356,7 +380,7 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
     content: "";
 }
 .breadcrumb ul li::after {
-    color: #666666;
+    color: #898989;/*GRIS CLARO*/
     content: "/";
     font-size: 12px;
     line-height: 24px;
@@ -365,7 +389,7 @@ li.add_cart_button.btn-group:hover .btn.btn-primary.icon , li.add_cart_button.bt
     padding: 0;
 }
 .breadcrumb ul li.active a,.breadcrumb ul li.active {
-    color: #84b943;
+    color: red;
 }
 /*<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>*/
 /*  RESPONSIVE

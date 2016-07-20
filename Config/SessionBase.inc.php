@@ -29,17 +29,18 @@
 session_start();
 //echo getcwd()."<br>";///----DEBUG---
 //echo $url = str_replace("\\","/",  getcwd());///----DEBUG---
+unset($_SESSION['shop']);
 
-if (!isset($_SESSION['shop'])) {//Si no existe var session la crea
-    $_SESSION['shop'] = [
-        'publicPath' => str_replace("\\", "/", getcwd()),
-        'oShop' => '',
-        'a_grupo_cantidad' => '',
-        'a_grupo_oferta_cantidad' => '',
-        '$aGroups' => '',
-        '$CounGroups' => ''
-    ];
-}
+$_SESSION['shop'] = [
+    'publicPath' => str_replace("\\", "/", getcwd()),
+    'oShop' => '',
+    'a_grupo_cantidad' => '',
+    'a_grupo_oferta_cantidad' => '',
+    'aGroups' => '',
+    'CounGroups' => 0,
+    'carroProductos' => null, //Tiene que estar a null  para Controller/genCarroCaja.php is_null();
+    'indexValidNumProducts' => null//Se inicia en Controller/genTabSlider.php function ProductTabsSliderLvl_2()*/
+];
 //echo $_SESSION['shop']['publicPath'];///----DEBUG---
 
 /* ======================================= 
@@ -66,11 +67,13 @@ $_SESSION['shop']['a_grupo_oferta_cantidad'] = $shop->getArrAux();
 
 /* VARIABLES FUNCION */
 $shop->TabsSliderGroups();
-$_SESSION['shop']['$aGroups'] = $shop->getArrAux();  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
-$_SESSION['shop']['$CounGroups'] = count($_SESSION['shop']['$aGroups']);   //Total Grupos    
+$_SESSION['shop']['aGroups'] = $shop->getArrAux();  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
+$_SESSION['shop']['CounGroups'] = count($_SESSION['shop']['aGroups']);   //Total Grupos    
 
 /* ======================================= 
   VARIABLES
   ======================================== */
 $_SESSION['shop']['oShop'] = serialize($shop);
+
+
 

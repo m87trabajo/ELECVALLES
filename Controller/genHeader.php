@@ -50,20 +50,19 @@ $aOfertaGrupoCantidad = $_SESSION['shop']['a_grupo_oferta_cantidad']; //SELECT g
 A();
 TopHeader();
 MainHeader();
-FH_1();
-FH_2();
-FH_3();
+FooterHeader_1();
+FooterHeader_2();
+FooterHeader_3();
 MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu[0], 'category_page.php?vNO=N&vGDFS=', 'active', '', 'col-xs-12 col-sm-12 col-md-12 col-lg-4');
 MenuItems($aOfertaGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu[1], 'category_page.php?vNO=O&vGDFS=', '', 'Container_SM', 'col-xs-12 col-sm-12 col-md-12 col-lg-6');
-FH_5($IN_aNameMenu[2], $IN_aNameMenu[3]);
-FH_6();
-FH_7();
+FooterHeader_5($IN_aNameMenu[2], $IN_aNameMenu[3]);
+FooterHeader_6();
+FooterHeader_7();
 A_1();
 
 /* ============================================================================================================ 
   FUNCIONES
   ============================================================================================================= */
-
 function MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu, $Href, $sCSS_1, $sCSS_2, $sCSS_2_3) {
 
     $resto = count($aGrupoCantidad); //Cantidad de elementos por poner
@@ -72,10 +71,10 @@ function MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu, $Href, $sCSS
     $NoSpaces = ''; //String sin espacios
 
 
-    FH_4_1($sCSS_1, $IN_aNameMenu, $sCSS_2);
+    FooterHeader_4_1($sCSS_1, $IN_aNameMenu, $sCSS_2);
 
     while ($resto > 0) {
-        FH_4_2($sCSS_2_3);
+        FooterHeader_4_2($sCSS_2_3);
 
         $actual = $inicio + $IN_NumeroFilas;
 
@@ -85,13 +84,13 @@ function MenuItems($aGrupoCantidad, $IN_NumeroFilas, $IN_aNameMenu, $Href, $sCSS
 
         for ($i = $inicio; $i < $actual; $i++) {
             $NoSpaces = str_replace(' ', '_', $aGrupoCantidad[$i]['grupo']);
-            FH_4_3($aGrupoCantidad[$i]['grupo'], $aGrupoCantidad[$i]['cantidad'], $Href, $NoSpaces);
+            FooterHeader_4_3($aGrupoCantidad[$i]['grupo'], $aGrupoCantidad[$i]['cantidad'], $Href, $NoSpaces);
         }
 
-        FH_4_4();
+        FooterHeader_4_4();
 
         $resto = $resto - $IN_NumeroFilas;
         $inicio = $inicio + $IN_NumeroFilas;
     }
-    FH_4_5();
+    FooterHeader_4_5();
 }

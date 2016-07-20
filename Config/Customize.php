@@ -24,5 +24,5 @@ $IN_aNameMenu=['PRODUCTOS','OFERTAS','SERVICIOS','NOTICIAS'];
 /* ======================================= 
   PRODUCT TAB SLIDER
   ======================================== */
-$IN_NumTabsSlider = 1; //Cantidad de tab slider       
+$IN_NumTabsSlider = 5; //Cantidad de tab slider       
 $IN_NumTabs = 4; //Cantidad de tabs en tabs slider  

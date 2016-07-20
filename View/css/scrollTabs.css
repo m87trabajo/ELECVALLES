@@ -28,11 +28,11 @@ div.ajaxLoad{
 }
 /*color :hover links pestañas superiores tab */
 .scroll_tabs .more_info_tab li a:hover, .scroll_tabs .nav_tab_line li a:focus,.scroll_tabs .nav_tab_line li.active a {
-  color:#096eb7;/*AZUL PRINCIPAL*/
+  /*color:#096eb7;/*AZUL PRINCIPAL*/
 }
 /*color :hover nombre producto*/
 .product .product_info .name a:hover, .product .product_info .name a:focus{
-  color:#096eb7;/*AZUL PRINCIPAL*/
+  /*color:#096eb7;/*AZUL PRINCIPAL*/
 }
 
 /*color :hover iconos desplazamiento carrousel*/
@@ -62,7 +62,7 @@ div.ajaxLoad{
 .scroll_tabs .nav_tab_line li a {
   border: medium none;
   box-shadow: none;
-  color: #666666;/*gris*/
+  color: #575757;/*GRIS*/
   font-weight: 500;
   line-height: 15px;/*sino vibra*/
   padding: 0px;
@@ -74,7 +74,7 @@ div.ajaxLoad{
 /*pestañas superiores tab quita fondo boton*/
 .scroll_tabs .nav_tab_line li a:hover,
 .scroll_tabs .nav_tab_line li a:focus {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);/*TRANSPARENTE*/
 }
 
 /*margen entre pestañas superiores i fotos*/

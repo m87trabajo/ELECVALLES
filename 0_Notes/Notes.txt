@@ -12,3 +12,5 @@ default-character-set=utf8
 [mysqld]
 character-set-server = utf8
 
+var dataSanitized = data.replace(/([ ]{1,})(\r\n|\n|\r)/gm, "");
+

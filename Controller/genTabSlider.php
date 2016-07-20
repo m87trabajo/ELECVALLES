@@ -29,7 +29,9 @@
 require_once 'funcSessionStarted.php'; //En este caso si que es llamdao por index.php pero tmb por AJAXGroupTabSlider no son llamados por index.php es llamado por mainIndex.js
 require_once 'funcAutoLoad.php';
 require_once $_SESSION['shop']['publicPath'] . '/Config/Customize.php';
+require_once $_SESSION['shop']['publicPath'] . '/View/html/mainElement.php';
 require_once $_SESSION['shop']['publicPath'] . '/View/html/tabSlider.php';
+
 
 /* ======================================= 
   AJUSTAR SEGUN PREFERENCIA
@@ -54,8 +56,8 @@ $NoSpaces = ''; //String sin espacios
 $FirstLoop = ''; //Pone classe .active nav nav-tabs nav_tab_line
 
 /* VARIABLES FUNCION */
-$aGroups = $_SESSION['shop']['$aGroups'];  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
-$CounGroups = $_SESSION['shop']['$CounGroups'];   //Total Grupos    
+$aGroups = $_SESSION['shop']['aGroups'];  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
+$CounGroups = $_SESSION['shop']['CounGroups'];   //Total Grupos    
 
 /* ============================================================================================================ 
   MAIN
@@ -67,10 +69,10 @@ if ($_POST) {
         $IN_NumTabsSlider = 1; //Cantidad de tab slider       ///0///1///1///1///18///36///1
         $IN_NumTabs = 4; //Cantidad de tabs en tabs slider   ///0///0///1///18///1///1///36
 
-        $elem = $_POST['TrackLoad'] * $IN_NumTabs;
+        $elem = $_POST['TrackLoad'] * $IN_NumTabs;//SI AHY DOS MOSTRARE EL TERCERO
         genTabSlider_AJAX($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $CounGroups, $elem);
     } elseif (isset($_POST['nameGroupUnderScore'])) {
-        generateGroupTabSlider_AJAX($_POST['GroupItem'], $_POST['nameGroupUnderScore']);
+        genGroupTabSlider_AJAX($_POST['GroupItem'], $_POST['nameGroupUnderScore']);
     }
 } else {
     genTabSlider_PHP($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $CounGroups, 0);
@@ -79,7 +81,7 @@ if ($_POST) {
 /* ============================================================================================================ 
   FUNCIONES
   ============================================================================================================= */
-
+//SIEMPRES SE EJECUTA EL PHP QUE CREA LA BASE PARA LUEGO PODER APLICAR DOM
 function genTabSlider_PHP($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $CounGroups, $start) {
     /* ======================================= 
       OBJETO
@@ -110,8 +112,8 @@ function genTabSlider_PHP($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $Cou
 
     $VarCantTabsSlider = $IN_NumTabsSlider;   //Cuenta tabs slider puestos (decrementa)
     $Cnt = 0;   //Cuenta tabs slider puestos (aumenta)
-    //
-    A_0_TBS();//HTML <div id = "Main"> ABIERO View/html/header.php
+
+    mainElementOpen('Index'); //HTML <div id = "Main"> ABIERO View/html/header.php
 
     while ($VarCantTabsSlider > 0 && $IN_NumTabs > 0 && ($Cnt * $IN_NumTabs) <= ($CounGroups - 1)) {//Si se pone variable resto pone todos los grupos    
         A_TBS($aGroups[$Inicio]['grupo']); //ABRE <section> HTML tabSlider.php
@@ -124,11 +126,12 @@ function genTabSlider_PHP($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $Cou
         $Inicio = $Inicio + $IN_NumTabs;                  ///0+4=4///4+4=8///8+4=12///12+4=16
         G_TBS(); //CIERRA <section> HTML tabSlider.php
     }
+    
+    mainElementClose(); //HTML <div id = "Main"> CERRADO View/html/footer.php
 
-    A_1_TBS();//HTML <div id = "Main"> CERRADO View/html/footer.php
 }
 
-;
+
 
 function genTabSlider_AJAX($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $CounGroups, $start) {
     /* ======================================= 
@@ -138,6 +141,7 @@ function genTabSlider_AJAX($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $Co
         $IN_NumTabsSlider = 1;
     }
 
+    /*NO PUEDE SALIRSE PONDRA EL ULTIMO*/
     if ($start >= $CounGroups) {
         $start = $CounGroups - 1;
     }
@@ -160,9 +164,9 @@ function genTabSlider_AJAX($oShop, $aGroups, $IN_NumTabsSlider, $IN_NumTabs, $Co
     G_TBS(); //CIERRA <section> HTML tabSlider.php
 }
 
-;
 
-function generateGroupTabSlider_AJAX($aGroupProducts, $nameGroupUnderScore) {
+
+function genGroupTabSlider_AJAX($aGroupProducts, $nameGroupUnderScore) {
     // D_TBS();
 //-----LEVEL 2--INSIDE----//
     E_TBS($nameGroupUnderScore); //ABRE div.tab-content HTML tabSlider.php   
@@ -170,7 +174,7 @@ function generateGroupTabSlider_AJAX($aGroupProducts, $nameGroupUnderScore) {
     E_2_TBS(); //cierra <!-- /.tab-pane -->
 }
 
-;
+
 /* ============================================================================================================ 
   FUNCIONES
   ============================================================================================================= */
@@ -212,6 +216,12 @@ function ProductTabsSliderLvl_2($aProductsByGroup) {
     $sHotNewSale = 'sale'; //Modificar tmb en handmade.js 
 
     foreach ($aProductsByGroup as $producto) {
+        //$_SESSION['shop']['indexValidNumProducts']=ARRAY();
+        /* GUARDAMOS EN SERVIDOR PARA TENER UNOS DATOS FIABLES */
+        /* CUANDO DAMOS A F5 RESETEA VARIABLES SESSION*/
+
+        $_SESSION['shop']['indexValidNumProducts'][] = $producto['codigo_producto'];
+
 
         if ($producto["valor_oferta"] == 1) {
             $string_vNO = "vNO=O&";
@@ -220,4 +230,8 @@ function ProductTabsSliderLvl_2($aProductsByGroup) {
         }
         E_1_TBS($string_vNO, $data_valor_oferta, $producto['codigo_producto'], $producto['nombre_producto'], $producto['pvp'], $producto['pvp_incrementado'], $producto['imagen'], $sHotNewSale);
     }
+    //echo $producto['codigo_producto'];
+    //var_dump($aAux); ///----DEBUG---
+    //print_r($_SESSION['shop']['indexValidNumProducts']); ///----DEBUG---
+    //exit(); ///----DEBUG---
 }

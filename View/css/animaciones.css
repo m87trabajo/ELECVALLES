@@ -1,3 +1,60 @@
+/*===================================================================================*/
+/*  HEADER--->TOP_HEADER
+/*===================================================================================*/
+.fadeInFromNone{
+    animation-duration: 0.5s;
+    animation-name: fadeInFromNone;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: fadeInFromNone;
+    -webkit-animation-fill-mode: forwards;
+    -ms-animation-duration: 0.5s;
+    -ms-animation-name: fadeInFromNoneIE;
+    -ms-animation-fill-mode: forwards;    
+}
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        opacity: 0
+    }
+
+    1% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fadeInFromNoneIE {
+    0% {
+        opacity: 0
+    }
+
+    1% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        opacity: 0
+    }
+
+    1% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+
 /*efecto flechita moviendose*/
 /* Icon Down */
 @-webkit-keyframes hvr-icon-down {
@@ -29,7 +86,91 @@
 		transform: translateY(8px);
 	}
 }
+.fadeOutFromFull{
+    animation-duration: 1.5s;
+    animation-name: fadeOutFromFull;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-name: fadeOutFromFull;
+    -webkit-animation-fill-mode: forwards;
+    -ms-animation-duration: 1.5s;
+    -ms-animation-name: fadeOutFromFullIE;
+    -ms-animation-fill-mode: forwards;    
+}
+@-webkit-keyframes fadeOutFromFull {
+    0% {
+        opacity: 1
+    }
 
+    1% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes fadeOutFromFullIE {
+    0% {
+        opacity: 1
+    }
+
+    1% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes fadeOutFromFull {
+    0% {
+        opacity: 1
+    }
+
+    1% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+/*efecto flechita moviendose*/
+/* Icon Down */
+@-webkit-keyframes hvr-icon-down {
+	0%,
+	50%,
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	25%,
+	75% {
+		-webkit-transform: translateY(8px);
+		transform: translateY(8px);
+	}
+}
+
+@keyframes hvr-icon-down {
+	0%,
+	50%,
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	25%,
+	75% {
+		-webkit-transform: translateY(8px);
+		transform: translateY(8px);
+	}
+}
 /* Icon Down */
 .hvr-icon-down {
 	display: inline-block;
@@ -75,7 +216,7 @@
 	left: 0;
 	right: 100%;
 	bottom: 0;
-	background: white;
+	background: white;/*BLANCO*/
 	height: 4px;
 	-webkit-transition-property: right;
 	transition-property: right;

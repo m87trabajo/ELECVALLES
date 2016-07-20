@@ -18,8 +18,9 @@
  ============================================================================================================= */
 $(window).load(function () {//Todo el DOM cargado, imagenes...
     $(document).scrollTop(0);
-    TabSlider_JS();
-    NavTabSlider_JS();
+    //alert("MARC");
+    genTabSlider();
+    genGroupTabSlider();
 });
 
 
@@ -27,21 +28,25 @@ $(window).load(function () {//Todo el DOM cargado, imagenes...
  FUNCIONES
  ============================================================================================================= */
 /* ===================================================================================== 
+ ---SCROLL DOWN---
  ---AJAX AUTO LOAD GRUPOS TABS SLIDER---Controller/AJAXTabSlider.php
  ======================================================================================
  http://api.jquery.com/jquery.ajax/
  http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
  =========================================================================================== */
-function TabSlider_JS() {
+function genTabSlider() {
     //scrollTab();
     var Loading = false; //to prevents multipal ajax loads
-    var Finish = false; //Flag valor maximo
+    var Finish = false; //Condicion de paro
     var FlagFirstLoop = false; //Cnt empieza siempre por 1
     var TrackLoad = 0; //Indica cuantos <sections> ahy en la pagina
     var obj = null;//obj[0]=$IN_NumTabs=4, obj[1]=$CounGroups=18 devuelto por JSON "Controller/AJAXNavTabSlider.php"
+    var limitTabSlider = 0;
+    var NextItem = 0;
     var jqxhr = null; //Objeto JSON devuelto por 
 
     $(window).scroll(function (e) { //detect page scroll
+        e.preventDefault();
         if ($(window).scrollTop() + $(window).height() == $(document).height())  //user scrolled to bottom of the page?
         {
             if (Loading === false && Finish === false) {
@@ -50,10 +55,11 @@ function TabSlider_JS() {
 
                 //Devuelve $IN_NumTabs=4 y $CounGroups=18 Para tener una condicion de paro.
                 if (FlagFirstLoop === false) {
+                    FlagFirstLoop = true;
                     jqxhr = $.ajax({
                         async: false, //synchronously. 
                         type: "POST",
-                        dataType: "json", //type  data expecting back from the server.
+                        dataType: "json", //JSON type  data expecting back from the server.
                         global: false,
                         url: "Controller/AJAXNavTabSlider.php",
                         success: Done,
@@ -68,49 +74,42 @@ function TabSlider_JS() {
                         alert("Error en mainIndex.js AJAX AUTO LOAD GRUPOS TABS SLIDER\nPART 1")
                     }
                     ;
-                    FlagFirstLoop = true;
+
+                    /*DATA*/
                     obj = JSON.parse(jqxhr);
+                    /*SOLO SE EJECUTA UNA VEZ*/
+                    limitTabSlider = Math.ceil(obj[1] / obj[0]);
                 }
                 ;
 
                 //obj[0]=$IN_NumTabs=4///----HELP----
                 //obj[1]=$CounGroups=18///----HELP---
                 //alert(obj[0] + ',' + obj[1]);///--DEBUG--
-
                 TrackLoad = $("section.wrpTabSlider").length;////Indica cuantos <sections> ahy en la pagina
-                //alert(TrackLoad + "TrackLoad"),///--DEBUG--
+                NextItem = TrackLoad + 1;
+                //alert(TrackLoad + "TrackLoad")///--DEBUG--
+                //alert(TrackLoad + 1);
+                //TrackLoad se actualiza cada vez que se produce scroll en ventana
+                //(TrackLoad+1) SI TENEMOS 2 PUESTOS MIRAMOS QUE EL QUE VAYA A PONER NO SALGA DE Math.ceil(obj[1] / obj[0])
+                /*QUEDAN POR PONER TAB SLIDER*/
+                if (NextItem <= limitTabSlider && NextItem > 0) {
+                    $.ajax({
+                        async: true, //asynchronously. 
+                        type: "POST",
+                        dataType: "html", //HTML type  data expecting back from the server.
+                        url: "Controller/genTabSlider.php",
+                        success: Done,
+                        error: Fail,
+                        data: {
+                            TrackLoad: TrackLoad
+                        }
+                    });
 
-                $.ajax({
-                    async: true, //asynchronously. 
-                    type: "POST",
-                    dataType: "html", //type  data expecting back from the server.
-                    url: "Controller/genTabSlider.php",
-                    beforeSend: BeforeLoad,
-                    success: Done,
-                    error: Fail,
-                    data: {
-                        TrackLoad: TrackLoad
-                    }
-                });
-
-                function BeforeLoad() {//Si Ajax succes      
-//                    elemSection.find(".WrapperProducts_TBS > div").removeClass("active");
-//                    WrapperProducts_TBS.prepend('<div class="ajaxLoad"><img src="View/img/ajaxLoad.gif"></div>');
-                }
-
-                function Done(data) { //on Ajax success
-                    //TrackLoad se actualiza cada vez que se produce scroll en ventana
-                    if (TrackLoad >= Math.ceil(obj[1] / obj[0])) {
-                        Finish = true;
-                    } else {
-
-                        //Selecciona HTML y coloca <section> generada por  "Controller/genTabSlider.php"  en el first()                    
-                        $("#Main .container .row").first().append(data);
-
-                        $(".ajaxLoad").remove();
-
-
-
+                    function Done(data) { //on Ajax success
+                        //alert(data);///----DEBUG---
+                        // var dataSanitized = data.replace(/([ ]{1,})(\r\n|\n|\r)/gm, "");
+                        //Data es HTML sin espacios ni CRLF. no santizar arreglar PHP
+                        $("#wrpIndex .container .row").first().append(data);
                         // init carousel   
                         //Solo carga el ultimo tab slider creado
                         $("section.wrpTabSlider").last().find('.home-owl-carousel').each(function () {
@@ -127,62 +126,46 @@ function TabSlider_JS() {
                                 navigationText: ["", ""]
                             });
                         });
-                        //alert("data" + data);
-                        //alert("amth" + Math.ceil(obj[1] / obj[0]));
-
-                        //alert("finish");
-                        Loading = false;
-                        //scrollTab();
                     }
+                    ;
 
+                    function Fail() {
+                        alert("Error en mainIndex.js AJAX AUTO LOAD GRUPOS TABS SLIDER\nPARTE 2");
+                    }
+                    ;
 
+                } 
+                /*SI ES IGUAL AL MAXIMO O SE A PASADO PON FOOTER*/
+                if (NextItem === limitTabSlider || NextItem > limitTabSlider) {
+                    Finish = true;/*PARA EJECUCCION YA SE HAN COLOCADO TODOS LOS ELEMENTOS CUANDO SCROLL NO ENTRARA MAS*/
+                    Loading = true;//to prevents multipal ajax loads, when Finish=1 also Loading=1 for prevent bucle
+                    $.get("Controller/genFooter.php", function () {
+                    }, "html")
+                            .done(function (data) {
+                                // var dataSanitized = data.replace(/([ ]{1,})(\r\n|\n|\r)/gm, "");
+                                //Data es HTML sin espacios ni CRLF. no santizar arreglar PHP
+                                $("#wrpIndex").after(data);
+                            })
+                            .fail(function () {
+                                alert("Error en handmade.js AJAX GRUPOS TABS SLIDER.\nSe a encontrado un ---echo-- en el procceso de AJAXTabSlider.php")
+                            });
+                    //alert("data" + data);///----DEBUG---
+                    //alert("amth" + Math.ceil(obj[1] / obj[0]));///----DEBUG---
+                    //alert("finish");///----DEBUG---
                 }
-                ;
-
-                function Fail() {
-                    alert("Error en mainIndex.js AJAX AUTO LOAD GRUPOS TABS SLIDER\nPARTE 2");
-                }
-                ;
-
-            }
-            if (Finish === true && FlagFirstLoop === true) {
-                FlagFirstLoop = false;
-                //alert("hola");
-                $.ajax({
-                    async: true, //By default, all requests are sent asynchronously (i.e. this is set to true by default). 
-                    type: "POST",
-                    dataType: "html", //The type of data that you're expecting back from the server.
-                    url: "Controller/genFooter.php",
-                    beforeSend: BeforeLoad,
-                    success: Done,
-                    error: Fail,
-                });
-                e.preventDefault();
-
-                function BeforeLoad() {
-
-                }
-//Si Ajax succes
-                function Done(data) { //on Ajax success
-                   $("#Main").append(data);
-                }
-                ;
-
-                function Fail() {
-                    alert("Error en handmade.js AJAX GRUPOS TABS SLIDER.\nSe a encontrado un ---echo-- en el procceso de AJAXTabSlider.php")
-                }
+                Loading = false;//to prevents multipal ajax loads
             }
         }
-        e.preventDefault();
-
     });
 }
 
 /*  =================================================================================== 
+ ---ON CLICK TAB de TABSLIDER---
  ---AJAX CLICK EN TAB DE GRUPOS TABS SLIDER---Controller/AJAXNavTabSlider.php
  ======================================================================================                       */
-function NavTabSlider_JS() {
-    $("#Main .container .row ").on("click", ".scroll_tabs .nav_tab_line li a", function (e) {
+function genGroupTabSlider() {
+    $("#wrpIndex .container .row ").on("click", ".scroll_tabs .nav_tab_line li a", function (e) {
+        e.preventDefault();
         var elementA = $(this); //OBJECT CLICKED
         var href = elementA.attr("href"); //#BAÑO_Y_GRIFERÍA Obtiene de new-products nav nav-tabs nav_tab_line el nombre de grupo apretado
         var nameGroupUnderScore = href.replace(/#/gi, ""); //BAÑO_Y_GRIFERÍA Perform a global, case-insensitive replacement:
@@ -198,7 +181,7 @@ function NavTabSlider_JS() {
             $.ajax({
                 async: true, //asynchronously. 
                 type: "POST",
-                dataType: "json", //type  data expecting back from the server.
+                dataType: "json", //JSON type  data expecting back from the server.
                 url: "Controller/AJAXGroupTabSlider.php",
                 beforeSend: BeforeLoad,
                 success: Done,
@@ -213,11 +196,11 @@ function NavTabSlider_JS() {
             }
 
             function Done(data) { //on Ajax success
-                //alert(+data);///--DEBUG--
+                //alert(data);///--DEBUG--
                 $.ajax({
                     async: true, //asynchronously. 
                     type: "POST",
-                    dataType: "html", //type  data expecting back from the server.
+                    dataType: "html", //HTML type  data expecting back from the server.
                     url: "Controller/genTabSlider.php",
                     beforeSend: BeforeLoad,
                     success: Done,
@@ -240,6 +223,10 @@ function NavTabSlider_JS() {
                     elementA.closest("li").addClass("hide");
 
                     elemSection.find(".WrapperProducts_TBS > div").removeClass("active");
+
+                    // var dataSanitized = data.replace(/([ ]{1,})(\r\n|\n|\r)/gm, "");
+                    //Data es HTML sin espacios ni CRLF. no santizar arreglar PHP
+
                     WrapperProducts_TBS.append(data);
 
 
@@ -274,7 +261,6 @@ function NavTabSlider_JS() {
                 alert("Error en handmade.js AJAX CLICK EN TAB DE GRUPOS TABS SLIDER.\nPARTE LVL 1")
             }
         }
-        e.preventDefault();
     });
 }
 

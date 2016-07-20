@@ -1,5 +1,5 @@
 $.ajax({
-    async: true, //By default, all requests are sent asynchronously (i.e. this is set to true by default). 
+    async: true, ////asynchronously
     type: "POST",
     dataType: "json", //The type of data that you're expecting back from the server.
     url: "Controller/AJAXTabSlider.php",
@@ -15,7 +15,7 @@ e.preventDefault();
 function BeforeLoad() {
 
 }
-//Si Ajax succes
+
 function Done(data) { //on Ajax success
 
 }

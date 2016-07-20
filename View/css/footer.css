@@ -3,14 +3,14 @@
   ============================================================================================================= */
 /*contenedor footer con borde*/
 footer {
-    border-top: 1px solid #e2e2e2;/*BLANCO GRISACEO*/
+    border-top: 1px solid #e2e2e2;/*GRIS BLANCO*/
 }
 footer .footer_top .col_12_RS_SXS,footer .footer_bottom .menuFooter .col_12_RS_SXS{
     width: none;
 }
 /*color fondo footer_top */
 footer .footer_top {
-    background: #f7f7f7 none repeat scroll 0 0;/*GRIS BLANCO*/
+    background: #f7f7f7 none repeat scroll 0 0;/*BLANCO GRIS*/
     padding: 16px 0px;
 }
 /*separacion eje Y enlaces footer_top*/
@@ -23,7 +23,7 @@ footer .footer_top .module-body li:last-child {
 }
 /*enlaces footer_top*/
 footer .footer_top .module-body li a{
-    color:#333333;/*GRIS*/
+    color:#333333;/*GRIS OSCURO*/
 }
 /*:hover enlaces footer_top*/
 footer .footer_top .module-body li a:hover{
@@ -31,10 +31,9 @@ footer .footer_top .module-body li a:hover{
 }
 /*separador*/
 .separador_small{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.1);/*NEGRO OPACITY 0.1*/
     display: block;
     height: 3px;
-    opacity: 0.1;
     width: 30px;
     margin-bottom: 10px;
 }
@@ -56,7 +55,7 @@ footer .footer_top .clearfix_RS_LG{
   ======================================== */
 /*color fondo footer_bottom */
 footer .footer_bottom {
-    background: #333 none repeat scroll 0 0;
+    background: #333333  none repeat scroll 0 0;/*GRIS OSCURO*/
     padding:  4px 0;
 }
 /*color rojo para IVA*/
@@ -65,7 +64,7 @@ footer .footer_bottom span.attention{
 }
 /*blanco para elementos <a> y <span>*/
 footer .footer_bottom div.menuFooter,div.attentionConsumer,div.copyright span,a {
-    color:white;
+    color:white;/*BLANCO*/
 }
 /*borde debajo menu footer_bottom*/
 footer .footer_bottom div.menuFooter ul{
@@ -76,7 +75,7 @@ footer .footer_bottom div.menuFooter ul{
 }
 /*enlaces menu footer_bottom:hover*/
 footer .footer_bottom a:hover{
-    color:#898989;/*GRIS CLARO */
+    color:#898989 !important;/*GRIS CLARO */
 }
 /*Tamaño linia attentionConsumer*/
 footer .footer_bottom .attentionConsumer{

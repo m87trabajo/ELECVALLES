@@ -39,8 +39,8 @@ require_once $_SESSION['shop']['publicPath'] .'/Config/Customize.php';
   ======================================== */
 /* VARIABLES FUNCION */
 $resultContainer=array();
-$aGroups = $_SESSION['shop']['$aGroups'] ;  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
-$CounGroups = $_SESSION['shop']['$CounGroups'];   //Total Grupos    
+//$aGroups = $_SESSION['shop']['aGroups'] ;  //SELECT grupo FROM a_grupo_cantidad ORDER BY grupo ASC;
+$CounGroups = $_SESSION['shop']['CounGroups'];   //Total Grupos    
 
 
 /* ============================================================================================================ 

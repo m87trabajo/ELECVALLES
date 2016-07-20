@@ -71,4 +71,13 @@ Class Shop {
         // var_dump($FetchGroupProducts);
     }
 
+    //--------------------Controller/genCarroCaja.php--------------------------//
+    //------TABLA:productos------/
+    public function CarroCajaAjaxRequestProductByCodProducto($numProducto) {
+        $daoshop = new daoShop();
+        $FetchProductByNumProducto = $daoshop->FetchProductByNumProducto($numProducto);
+        $this->setArrAux($FetchProductByNumProducto);
+        // var_dump($FetchGroupProducts);
+    }
+
 }
